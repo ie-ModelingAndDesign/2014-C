@@ -10,16 +10,28 @@ import SpriteKit
 
 class GameScene: SKScene,SKPhysicsContactDelegate {
     
+    var delegate_escape: SceneEscapeProtocol?
+    
+    var difficulty : Int?
+    
     let redCategory: UInt32 = 0x1 << 0
     let greenCategory: UInt32 = 0x1 << 1
     
     let teacher = SKSpriteNode(imageNamed: "kono3.jpg")
     
     var myLabel : SKLabelNode = SKLabelNode(text: "60")
-    var time :Int = 60
+    var time :Int = 15
     var pointLabel : SKLabelNode = SKLabelNode(text: "0")
     var point : Int = 0
-
+    
+    var timer1 : NSTimer?
+    var timer2 : NSTimer?
+    var timer3 : NSTimer?
+    var gameTimer : NSTimer?
+    
+    let id1 : SKSpriteNode = SKSpriteNode(imageNamed: "item1.jpeg")
+    let id2 : SKSpriteNode = SKSpriteNode(imageNamed: "item2.jpg")
+    let id3 : SKSpriteNode = SKSpriteNode(imageNamed: "item3.jpg")
     
     override func didMoveToView(view: SKView) {
         self.physicsWorld.contactDelegate = self
@@ -48,15 +60,35 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         //pointLabel.color = UIColor.blueColor()
         pointLabel.position = CGPoint(x:650,y:700)
         self.addChild(pointLabel)
+        println(self.difficulty)
+        
+        if self.difficulty > 0 {
+            timer1 = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: "flowItem1", userInfo: nil, repeats: true)
+        }
+        
+        if self.difficulty > 1 {
+            timer2 = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "flowItem2", userInfo: nil, repeats: true)
+        }
+        
+        if self.difficulty > 2 {
+            timer3 = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "flowItem3", userInfo: nil, repeats: true)
+        }
         
         
-        var timer1 = NSTimer.scheduledTimerWithTimeInterval(6, target: self, selector: "flowItem1", userInfo: nil, repeats: true)
-        
-        var gameTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "gameTimer", userInfo: nil, repeats: true)
+        gameTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "Timer", userInfo: nil, repeats: true)
     }
     
-    func gameTimer(){
+    func Timer(){
         time--
+        if time < 0 {
+            timer1?.invalidate()
+            timer2?.invalidate()
+            timer3?.invalidate()
+            gameTimer?.invalidate()
+            time = 15
+            
+            delegate_escape!.sceneEscape(self)
+        }
         self.myLabel.text = String(self.time)
     }
     
@@ -67,10 +99,10 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             let location = touch.locationInNode(self)
             println(location)
             if(location.x < 500){
-                teacher.position.x -= 5
+                teacher.position.x -= 20
                 println("go left")
             }else{
-                teacher.position.x += 5
+                teacher.position.x += 20
                 println("go right")
             }
             /*let sprite = SKSpriteNode(imageNamed:"Spaceship")
@@ -92,6 +124,33 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         
     }
     
+    func flowItem2(){
+        println("flow Item 2")
+        var x_pos : CGFloat = CGFloat(arc4random_uniform(375) * 2)
+        let item2 : SKSpriteNode = SKSpriteNode(imageNamed: "item2.jpg")
+        item2.xScale = 0.2
+        item2.yScale = 0.2
+        item2.position = CGPoint(x: /*500*/x_pos,y: 800)
+        item2.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(70, 50))
+        item2.physicsBody?.categoryBitMask = greenCategory
+        item2.physicsBody?.contactTestBitMask = redCategory
+        item2.name = "item2"
+        self.addChild(item2)
+    }
+    
+    func flowItem3(){
+        var x_pos : CGFloat = CGFloat(arc4random_uniform(375) * 2)
+        let item3 = SKSpriteNode(imageNamed: "item3.jpg")
+        item3.xScale = 0.2
+        item3.yScale = 0.2
+        item3.position = CGPoint(x: /*500*/x_pos,y: 800)
+        item3.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(70, 50))
+        item3.physicsBody?.categoryBitMask = greenCategory
+        item3.physicsBody?.contactTestBitMask = redCategory
+        item3.name = "item3"
+        self.addChild(item3)
+    }
+    
     func flowItem1(){
         var x_pos : CGFloat = CGFloat(arc4random_uniform(375) * 2)
         let item1 = SKSpriteNode(imageNamed: "item1.jpeg")
@@ -101,6 +160,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         item1.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(70, 50))
         item1.physicsBody?.categoryBitMask = greenCategory
         item1.physicsBody?.contactTestBitMask = redCategory
+        item1.name = "item1"
         self.addChild(item1)
         /*var flag : Bool = true
         var x_pos : CGFloat = CGFloat(arc4random_uniform(375))
@@ -146,11 +206,33 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         }
     if(firstBody.categoryBitMask & redCategory != 0 &&
     secondBody.categoryBitMask & greenCategory != 0){
-        println("collide")
+        /*println("collide")
+        print("FirstBody is")
+        println(firstBody)
+        print("secondBody is")
+        println(secondBody)*/
+        println(secondBody.node?)
+        if secondBody.node?.name == "item3" {
+            point -= 100
+        }else if secondBody.node?.name == "item2" {
+            point += 300
+        }else {
+            point += 100
+        }
     secondBody.node?.removeFromParent()
-        point += 100
         pointLabel.text = String(point)
     }
     }
+    
+    func setDifficulty (difficulty : Int){
+        
+        self.difficulty = difficulty
+        print("difficulty =")
+        println(self.difficulty)
+    }
+    
+    /*func getGameInfo(gameInfo : GameInfo) {
+        self.gameInfo = gameInfo
+    }*/
 
 }
