@@ -99,6 +99,7 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
     
     func goSelect() {
         selectScene = SelectScene(size: CGSizeMake(1024, 768))
+        selectScene.setGameInfo(self.gameInfo)
         selectScene.delegate_escape = self
         selectScene.scaleMode = SKSceneScaleMode.AspectFill
         self.skView!.presentScene(selectScene)
@@ -106,6 +107,7 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
     
     func goGame() {
         gameScene = GameScene(size: CGSizeMake(1024, 768))
+        gameScene.setGameInfo(self.gameInfo)
         gameScene.setDifficulty(selectScene.getDifficulty())
         gameScene.delegate_escape = self
         gameScene.scaleMode = SKSceneScaleMode.AspectFill
@@ -114,6 +116,8 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
     
     func goSecond() {
         secondScene = SecondScene(size: CGSizeMake(1024, 768))
+        secondScene.setGameInfo(self.gameInfo)
+        secondScene.getPoint(gameScene.returnPoint())
         secondScene.delegate_escape = self
         secondScene.scaleMode = SKSceneScaleMode.AspectFill
         self.skView!.presentScene(secondScene)
@@ -123,11 +127,13 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
     func sceneEscape(scene: SKScene) {
         
         if scene.isKindOfClass(GameScene) {
+            self.gameInfo = gameScene.getGameInfo()
             goSecond()
         } else if scene.isKindOfClass(SecondScene) {
+            self.gameInfo = secondScene.getGameInfo()
             goSelect()
         } else if scene.isKindOfClass(SelectScene){
-            
+            self.gameInfo = selectScene.getGameInfo()
             goGame()
         }
     }

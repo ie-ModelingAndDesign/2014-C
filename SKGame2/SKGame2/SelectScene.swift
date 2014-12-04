@@ -17,6 +17,8 @@ class SelectScene: SKScene {
     var menu2 : SKSpriteNode = SKSpriteNode(imageNamed: "item2.jpg")
     var menu3 : SKSpriteNode = SKSpriteNode(imageNamed: "item3.jpg")
     
+    var gameInfo : GameInfo?
+    
     var difficulty : Int = 1
     
     override func didMoveToView(view: SKView) {
@@ -55,13 +57,13 @@ class SelectScene: SKScene {
             
             if menu1.containsPoint(location) {
                 
-                self.difficulty = 1
+                gameInfo?.difficulty = 1
                 delegate_escape!.sceneEscape(self)
             } else if menu2.containsPoint(location) {
-                self.difficulty = 2
+                gameInfo?.difficulty = 2
                 delegate_escape!.sceneEscape(self)
             } else if menu3.containsPoint(location) {
-                self.difficulty = 3
+                gameInfo?.difficulty = 3
                 delegate_escape!.sceneEscape(self)
             }
             
@@ -71,6 +73,14 @@ class SelectScene: SKScene {
     
     func getDifficulty() -> Int{
         return self.difficulty
+    }
+    
+    func getGameInfo() -> GameInfo {
+        return self.gameInfo!
+    }
+    
+    func setGameInfo(gameInfo : GameInfo) {
+        self.gameInfo = gameInfo
     }
     
     /*func getGameInfo(gameInfo : GameInfo) {

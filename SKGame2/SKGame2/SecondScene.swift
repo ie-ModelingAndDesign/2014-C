@@ -13,20 +13,66 @@ class SecondScene: SKScene {
     
     var delegate_escape: SceneEscapeProtocol?
     
+    var gamePoint :Int = 0
+    var gameInfo : GameInfo?
+    
+    let backLabel = SKLabelNode(fontNamed: "Chalkduster")
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "最初の画面へ";
+        myLabel.text = "Point:";
         myLabel.fontSize = 40;
         myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
-        
         self.addChild(myLabel)
+        
+        let pointLabel = SKLabelNode(fontNamed: "Chalkduster")
+        var score = gameInfo?.point
+        pointLabel.text = String(score!)
+        pointLabel.fontSize = 40;
+        pointLabel.position = CGPoint(x:CGRectGetMidX(self.frame) + 120, y:CGRectGetMidY(self.frame));
+        self.addChild(pointLabel)
+        
+        let statusLabel = SKLabelNode(fontNamed: "Chalkduster")
+        
+        if gamePoint > gameInfo?.border {
+            statusLabel.text = "勝ち"
+        }else {
+            statusLabel.text = "負け"
+        }
+        statusLabel.fontSize = 40
+        statusLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame) - 150);
+        self.addChild(statusLabel)
+        
+        backLabel.text = "戻る"
+        backLabel.fontSize = 40
+        backLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame) - 300);
+        self.addChild(backLabel)
+        
     }
     
     // タップしたら、sceneEscapeを呼ぶようにする。
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         
-        delegate_escape!.sceneEscape(self)
+        for touch: AnyObject in touches {
         
+        let location = touch.locationInNode(self)
+        
+        if backLabel.containsPoint(location) {
+        delegate_escape!.sceneEscape(self)
+            }
+        }
+    }
+    
+    func getPoint(point:Int){
+        self.gamePoint = point
+    }
+    
+    func getGameInfo() -> GameInfo {
+        return self.gameInfo!
+    }
+    
+    func setGameInfo(gameInfo : GameInfo) {
+        self.gameInfo = gameInfo
     }
 }

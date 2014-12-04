@@ -9,10 +9,12 @@
 import Foundation
 
 class GameInfo {
-    var difficulty : Int?
+    var difficulty : Int = 0
+    var border : Int = 1000
+    var point : Int = 0
     
     init(){
         
     }
-    
+        
 }

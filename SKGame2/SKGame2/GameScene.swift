@@ -14,6 +14,8 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     
     var difficulty : Int?
     
+    var gameInfo : GameInfo?
+    
     let redCategory: UInt32 = 0x1 << 0
     let greenCategory: UInt32 = 0x1 << 1
     
@@ -62,15 +64,15 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         self.addChild(pointLabel)
         println(self.difficulty)
         
-        if self.difficulty > 0 {
+        if gameInfo?.difficulty > 0 {
             timer1 = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: "flowItem1", userInfo: nil, repeats: true)
         }
         
-        if self.difficulty > 1 {
+        if gameInfo?.difficulty > 1 {
             timer2 = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "flowItem2", userInfo: nil, repeats: true)
         }
         
-        if self.difficulty > 2 {
+        if gameInfo?.difficulty > 2 {
             timer3 = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "flowItem3", userInfo: nil, repeats: true)
         }
         
@@ -86,6 +88,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             timer3?.invalidate()
             gameTimer?.invalidate()
             time = 15
+            gameInfo?.point = self.point
             
             delegate_escape!.sceneEscape(self)
         }
@@ -234,5 +237,17 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     /*func getGameInfo(gameInfo : GameInfo) {
         self.gameInfo = gameInfo
     }*/
+    
+    func returnPoint() -> Int {
+        return self.point
+    }
+    
+    func getGameInfo() -> GameInfo {
+        return self.gameInfo!
+    }
+    
+    func setGameInfo(gameInfo : GameInfo) {
+        self.gameInfo = gameInfo
+    }
 
 }
