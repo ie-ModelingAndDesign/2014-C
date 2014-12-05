@@ -19,6 +19,8 @@ class SelectScene: SKScene {
     
     var gameInfo : GameInfo?
     
+    //var test : SKSpriteNode = SKSpriteNode(imageNamed: "item3.jpg")
+    
     var difficulty : Int = 1
     
     override func didMoveToView(view: SKView) {
@@ -37,6 +39,11 @@ class SelectScene: SKScene {
         menu3.yScale = 0.5
         menu3.position = CGPoint(x:500,y:200)
         self.addChild(menu3)
+        
+        /*test.xScale = 0.5
+        test.yScale = 0.8
+        test.position = CGPoint(x:400,y:600)
+        self.addChild(test)*/
         
         /* Setup your scene here */
         /*let myLabel = SKLabelNode(fontNamed:"Chalkduster")
@@ -67,9 +74,28 @@ class SelectScene: SKScene {
                 delegate_escape!.sceneEscape(self)
             }
             
+            
+            
         //delegate_escape!.sceneEscape(self)
         }
     }
+    
+    /*override func touchesMoved(touches: NSSet, withEvent event: UIEvent){
+        for touch: AnyObject in touches {
+            
+            let location = touch.locationInNode(self)
+            if test.containsPoint(location) {
+                test.position = location
+            }
+        }
+    }
+    
+    override func touchesEnded(touches: NSSet, withEvent event: UIEvent){
+        for touch: AnyObject in touches {
+            let location = touch.locationInNode(self)
+            
+        }
+    }*/
     
     func getDifficulty() -> Int{
         return self.difficulty

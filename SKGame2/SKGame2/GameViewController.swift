@@ -75,7 +75,7 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
     
     var skView: SKView?
     
-     var gameInfo : GameInfo = GameInfo()
+    var gameInfo : GameInfo = GameInfo()
     var selectScene : SelectScene = SelectScene()
     var gameScene : GameScene = GameScene()
     var secondScene :SecondScene = SecondScene()
