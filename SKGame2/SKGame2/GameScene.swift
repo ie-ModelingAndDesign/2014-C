@@ -89,7 +89,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             gameTimer?.invalidate()
             time = 15
             gameInfo?.point = self.point
-            
+            gameInfo?.nextScene = 4
             delegate_escape!.sceneEscape(self)
         }
         self.myLabel.text = String(self.time)

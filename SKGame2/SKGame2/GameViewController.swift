@@ -70,15 +70,19 @@ class GameViewController: UIViewController {
 import UIKit
 import SpriteKit
 
-// つくったプロトコルを設定しておく。
 class GameViewController: UIViewController, SceneEscapeProtocol {
     
     var skView: SKView?
     
+    let ud = NSUserDefaults.standardUserDefaults()
+    
     var gameInfo : GameInfo = GameInfo()
     var selectScene : SelectScene = SelectScene()
+    var selectScene2 : SelectScene2 = SelectScene2()
+    var selectScene3 : SelectScene3 = SelectScene3()
     var gameScene : GameScene = GameScene()
     var secondScene :SecondScene = SecondScene()
+    var initScene : InitScene = InitScene()
     
     /*let selectScene = SelectScene(size: CGSizeMake(1024, 768))
     let gameScene = GameScene(size: CGSizeMake(1024, 768))
@@ -88,13 +92,22 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // skViewを設定します。
         self.skView = self.view as? SKView
         skView!.showsFPS = true
         skView!.showsNodeCount = true
         skView!.ignoresSiblingOrder = true
         
-        goSelect()
+        
+        
+        goInit()
+    }
+    
+    func goInit() {
+        initScene = InitScene(size: CGSizeMake(1024, 768))
+        initScene.setGameInfo(self.gameInfo)
+        initScene.delegate_escape = self
+        initScene.scaleMode = SKSceneScaleMode.AspectFill
+        self.skView!.presentScene(initScene)
     }
     
     func goSelect() {
@@ -103,6 +116,22 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
         selectScene.delegate_escape = self
         selectScene.scaleMode = SKSceneScaleMode.AspectFill
         self.skView!.presentScene(selectScene)
+    }
+    
+    func goSelect2() {
+        selectScene2 = SelectScene2(size: CGSizeMake(1024, 768))
+        selectScene2.setGameInfo(self.gameInfo)
+        selectScene2.delegate_escape = self
+        selectScene2.scaleMode = SKSceneScaleMode.AspectFill
+        self.skView!.presentScene(selectScene2)
+    }
+    
+    func goSelect3() {
+        selectScene3 = SelectScene3(size: CGSizeMake(1024, 768))
+        selectScene3.setGameInfo(self.gameInfo)
+        selectScene3.delegate_escape = self
+        selectScene3.scaleMode = SKSceneScaleMode.AspectFill
+        self.skView!.presentScene(selectScene3)
     }
     
     func goGame() {
@@ -123,22 +152,47 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
         self.skView!.presentScene(secondScene)
     }
     
-    // デリゲートメソッドの記述。
     func sceneEscape(scene: SKScene) {
         
         if scene.isKindOfClass(GameScene) {
             self.gameInfo = gameScene.getGameInfo()
-            goSecond()
+            if gameInfo.nextScene == 4{
+                goSecond()
+            }
         } else if scene.isKindOfClass(SecondScene) {
             self.gameInfo = secondScene.getGameInfo()
-            goSelect()
+            if gameInfo.nextScene == 2 {
+                goSelect()
+            } else if gameInfo.nextScene == 3 {
+                goGame()
+            }
         } else if scene.isKindOfClass(SelectScene){
             self.gameInfo = selectScene.getGameInfo()
-            goGame()
+            if gameInfo.nextScene == 3 {
+                goGame()
+            } else if gameInfo.nextScene == 1 {
+                goInit()
+            } else if gameInfo.nextScene == 5 {
+                goSelect2()
+            }
+        } else if scene.isKindOfClass(InitScene){
+            self.gameInfo = initScene.getGameInfo()
+            goSelect()
+        } else if scene.isKindOfClass(SelectScene2){
+            self.gameInfo = selectScene2.getGameInfo()
+            if gameInfo.nextScene == 2 {
+                goSelect()
+            } else if gameInfo.nextScene == 6 {
+                goSelect3()
+            }
+        } else if scene.isKindOfClass(SelectScene3){
+            self.gameInfo = selectScene3.getGameInfo()
+            if gameInfo.nextScene == 5 {
+                goSelect2()
+            }
         }
     }
     
-    // この下はデフォルトのままなので、省略。
     override func shouldAutorotate() -> Bool {
         return true
     }

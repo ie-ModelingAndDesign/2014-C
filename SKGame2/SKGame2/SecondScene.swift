@@ -17,6 +17,7 @@ class SecondScene: SKScene {
     var gameInfo : GameInfo?
     
     let backLabel = SKLabelNode(fontNamed: "Chalkduster")
+    let retryLabel = SKLabelNode(fontNamed: "Chalkduster")
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -35,7 +36,7 @@ class SecondScene: SKScene {
         
         let statusLabel = SKLabelNode(fontNamed: "Chalkduster")
         
-        if gamePoint > gameInfo?.border {
+        if gamePoint >= gameInfo?.border {
             statusLabel.text = "勝ち"
         }else {
             statusLabel.text = "負け"
@@ -43,15 +44,18 @@ class SecondScene: SKScene {
         statusLabel.fontSize = 40
         statusLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame) - 150);
         self.addChild(statusLabel)
-        
+      
         backLabel.text = "戻る"
         backLabel.fontSize = 40
-        backLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame) - 300);
+        backLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame) - 270);
         self.addChild(backLabel)
         
+        retryLabel.text = "もう一度"
+        retryLabel.fontSize = 40
+        retryLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame) - 330);
+        self.addChild(retryLabel)
     }
     
-    // タップしたら、sceneEscapeを呼ぶようにする。
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         
         for touch: AnyObject in touches {
@@ -59,7 +63,11 @@ class SecondScene: SKScene {
         let location = touch.locationInNode(self)
         
         if backLabel.containsPoint(location) {
-        delegate_escape!.sceneEscape(self)
+            gameInfo?.nextScene = 2
+            delegate_escape!.sceneEscape(self)
+        } else if retryLabel.containsPoint(location){
+            gameInfo?.nextScene = 3
+            delegate_escape?.sceneEscape(self)
             }
         }
     }
