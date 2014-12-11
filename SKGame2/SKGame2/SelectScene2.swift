@@ -8,8 +8,9 @@
 
 import Foundation
 import SpriteKit
+import UIKit
 
-class SelectScene2: SKScene {
+class SelectScene2: SKScene{
     
     var delegate_escape: SceneEscapeProtocol?
     
@@ -67,6 +68,36 @@ class SelectScene2: SKScene {
         myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
         
         self.addChild(myLabel)*/
+        
+        var ein : SKSpriteNode = SKSpriteNode(imageNamed: "ein.jpg")
+        ein.alpha = 0.6
+        ein.xScale = 2.0
+        ein.yScale = 0.6
+        
+        if gameInfo?.locked < 4 {
+            var ein1 : SKSpriteNode = SKSpriteNode(imageNamed: "ein.jpg")
+            ein1.alpha = 0.3
+            ein1.xScale = 2.0
+            ein1.yScale = 0.6
+            ein1.position = CGPoint(x:500,y:600)
+            self.addChild(ein1)
+        }
+        if gameInfo?.locked < 5 {
+            var ein2 : SKSpriteNode = SKSpriteNode(imageNamed: "ein.jpg")
+            ein2.alpha = 0.3
+            ein2.xScale = 2.0
+            ein2.yScale = 0.6
+            ein2.position = CGPoint(x:500,y:400)
+            self.addChild(ein2)
+        }
+        if gameInfo?.locked < 6 {
+            var ein3 : SKSpriteNode = SKSpriteNode(imageNamed: "ein.jpg")
+            ein3.alpha = 0.3
+            ein3.xScale = 2.0
+            ein3.yScale = 0.6
+            ein3.position = CGPoint(x:500,y:200)
+            self.addChild(ein3)
+        }
     }
     
     override func touchesBegan(touches: NSSet, withEvent    event: UIEvent) {
@@ -78,11 +109,12 @@ class SelectScene2: SKScene {
             
             if menu1.containsPoint(location) {
                 
-                gameInfo?.difficulty = 1
+                gameInfo?.difficulty = 3
                 gameInfo?.nextScene = 3
+                gameInfo?.gameID = 3
                 delegate_escape!.sceneEscape(self)
             } else if menu2.containsPoint(location) {
-                gameInfo?.difficulty = 2
+                gameInfo?.difficulty = 3
                 gameInfo?.nextScene = 3
                 delegate_escape!.sceneEscape(self)
             } else if menu3.containsPoint(location) {

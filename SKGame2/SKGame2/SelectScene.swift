@@ -13,7 +13,7 @@ class SelectScene: SKScene {
     
     var delegate_escape: SceneEscapeProtocol?
         
-    var menu1 : SKSpriteNode = SKSpriteNode(imageNamed: "item1.jpeg")
+    var menu1 : SKSpriteNode = SKSpriteNode(imageNamed:"item1.jpeg")
     var menu2 : SKSpriteNode = SKSpriteNode(imageNamed: "item2.jpg")
     var menu3 : SKSpriteNode = SKSpriteNode(imageNamed: "item3.jpg")
     
@@ -21,7 +21,7 @@ class SelectScene: SKScene {
     var down : SKSpriteNode = SKSpriteNode(imageNamed: "item2.jpg")
     
     var currentPage : Int = 1
-    
+    var gameID : Int = 0
     var gameInfo : GameInfo?
     
     //var test : SKSpriteNode = SKSpriteNode(imageNamed: "item3.jpg")
@@ -80,14 +80,17 @@ class SelectScene: SKScene {
                 
                 gameInfo?.difficulty = 1
                 gameInfo?.nextScene = 3
+                self.gameID = 0
                 delegate_escape!.sceneEscape(self)
             } else if menu2.containsPoint(location) {
                 gameInfo?.difficulty = 2
                 gameInfo?.nextScene = 3
+                self.gameID = 1
                 delegate_escape!.sceneEscape(self)
             } else if menu3.containsPoint(location) {
                 gameInfo?.difficulty = 3
                 gameInfo?.nextScene = 3
+                self.gameID = 2
                 delegate_escape!.sceneEscape(self)
             } else if down.containsPoint(location) {
                 gameInfo?.nextScene = 5
@@ -144,6 +147,10 @@ class SelectScene: SKScene {
     
     func getDifficulty() -> Int{
         return self.difficulty
+    }
+    
+    func getGameId() -> Int {
+        return self.gameID
     }
     
     func getGameInfo() -> GameInfo {

@@ -19,6 +19,9 @@ class SecondScene: SKScene {
     let backLabel = SKLabelNode(fontNamed: "Chalkduster")
     let retryLabel = SKLabelNode(fontNamed: "Chalkduster")
     
+    var success : SKAction = SKAction.playSoundFileNamed("success.mp3", waitForCompletion: false)
+    var fault : SKAction = SKAction.playSoundFileNamed("fault.mp3", waitForCompletion: false)
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         let myLabel = SKLabelNode(fontNamed:"Chalkduster")
@@ -37,8 +40,10 @@ class SecondScene: SKScene {
         let statusLabel = SKLabelNode(fontNamed: "Chalkduster")
         
         if gamePoint >= gameInfo?.border {
+            runAction(success)
             statusLabel.text = "勝ち"
         }else {
+            runAction(fault)
             statusLabel.text = "負け"
         }
         statusLabel.fontSize = 40

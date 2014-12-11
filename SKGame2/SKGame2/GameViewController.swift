@@ -83,6 +83,7 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
     var gameScene : GameScene = GameScene()
     var secondScene :SecondScene = SecondScene()
     var initScene : InitScene = InitScene()
+    var profileScene : ProfileScene = ProfileScene()
     
     /*let selectScene = SelectScene(size: CGSizeMake(1024, 768))
     let gameScene = GameScene(size: CGSizeMake(1024, 768))
@@ -97,9 +98,16 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
         skView!.showsNodeCount = true
         skView!.ignoresSiblingOrder = true
         
-        
+        loadInfo()
         
         goInit()
+    }
+    
+    func goProfile() {
+        profileScene = ProfileScene(size: CGSizeMake(1024, 768))
+        profileScene.delegate_escape = self
+        profileScene.scaleMode = SKSceneScaleMode.AspectFill
+        self.skView!.presentScene(profileScene)
     }
     
     func goInit() {
@@ -138,6 +146,7 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
         gameScene = GameScene(size: CGSizeMake(1024, 768))
         gameScene.setGameInfo(self.gameInfo)
         gameScene.setDifficulty(selectScene.getDifficulty())
+        gameScene.setGameID(selectScene.getGameId())
         gameScene.delegate_escape = self
         gameScene.scaleMode = SKSceneScaleMode.AspectFill
         self.skView!.presentScene(gameScene)
@@ -147,9 +156,44 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
         secondScene = SecondScene(size: CGSizeMake(1024, 768))
         secondScene.setGameInfo(self.gameInfo)
         secondScene.getPoint(gameScene.returnPoint())
+        saveData()
         secondScene.delegate_escape = self
         secondScene.scaleMode = SKSceneScaleMode.AspectFill
         self.skView!.presentScene(secondScene)
+    }
+    
+    func loadInfo(){
+        println("NSUserDefaults is working")
+        let defaults = NSUserDefaults.standardUserDefaults()
+        var data : [Int] = []
+        if (defaults.objectForKey("data") != nil){
+            println("getting Defaults data")
+            let objects = defaults.objectForKey("data") as? NSArray
+            var datas:AnyObject
+            for datas in objects!{
+                data.append(datas as NSInteger)
+            }
+            gameInfo.locked = data[0]
+            gameInfo.playerLevel = data[1]
+            gameInfo.playerXP = Float(data[2])
+        }
+    }
+    
+    func saveData(){
+        
+        var datas : [Int] = []
+        
+        println(gameInfo.locked)
+        println(gameInfo.playerLevel)
+        println(gameInfo.playerXP)
+        
+        datas.append(self.gameInfo.locked)
+        datas.append(self.gameInfo.playerLevel)
+        datas.append(Int(self.gameInfo.playerXP))
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(datas, forKey:"data")
+        defaults.synchronize()
     }
     
     func sceneEscape(scene: SKScene) {
@@ -213,5 +257,6 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
+    
 
 }

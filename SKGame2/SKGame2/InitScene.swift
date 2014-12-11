@@ -24,6 +24,8 @@ class InitScene : SKScene  {
         myLabel.fontSize = 40;
         myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
         self.addChild(myLabel)
+        
+        
     }
     func setGameInfo(gameInfo : GameInfo){
         self.gameInfo = gameInfo
