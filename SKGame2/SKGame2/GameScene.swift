@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import CoreMotion
 
 class GameScene: SKScene,SKPhysicsContactDelegate {
     
@@ -45,6 +46,8 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     var sound2 : SKAction = SKAction.playSoundFileNamed("sound2.mp3", waitForCompletion: false)
     var sound3 : SKAction = SKAction.playSoundFileNamed("sound3.mp3", waitForCompletion: false)
     
+    var myMotionManager: CMMotionManager!//加速度センサ
+    
     override func didMoveToView(view: SKView) {
         self.physicsWorld.contactDelegate = self
         self.physicsWorld.gravity = CGVectorMake(0, -1.0)
@@ -58,6 +61,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
         
         self.addChild(myLabel)*/
+        
         teacher = SKSpriteNode(imageNamed: self.data.playerImage)
         teacher.xScale = 0.5
         teacher.yScale = 0.5
@@ -101,6 +105,22 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         
         
         gameTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "Timer", userInfo: nil, repeats: true)*/
+        
+        //加速度センサ
+        // MotionManagerを生成.
+        myMotionManager = CMMotionManager()
+        
+        // 更新周期を設定.
+        myMotionManager.accelerometerUpdateInterval = 0.05
+        
+        // 加速度の取得を開始.
+        myMotionManager.startAccelerometerUpdatesToQueue(NSOperationQueue.mainQueue(), withHandler: {(accelerometerData:CMAccelerometerData!, error:NSError!) -> Void in
+            println("**********IN Acceleration！！！**********")
+            println("x=\(accelerometerData.acceleration.x * 100.0)")
+            self.teacher.position.x += CGFloat(accelerometerData.acceleration.x * 100.0)
+            
+        })
+        
     }
     
     func startTime(){
@@ -168,10 +188,22 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         delegate_escape!.sceneEscape(self)
     }
     
+    
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         /* Called when a touch begins */
         
-        for touch: AnyObject in touches {
+        
+        //取得開始
+        //manager.startAccelerometerUpdatesToQueue(NSOperationQueue.currentQueue(), withHandler:handler)
+        
+        //停止
+        /*if (manager.accelerometerActive) {
+            manager.stopAccelerometerUpdates()
+            println("stop motion")
+        }*/
+        
+        
+        /*for touch: AnyObject in touches {
             let location = touch.locationInNode(self)
             println(location)
             if(location.x < teacher.position.x){
@@ -192,7 +224,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             sprite.runAction(SKAction.repeatActionForever(action))
             
             self.addChild(sprite)*/
-        }
+        }*/
     }
    
     override func update(currentTime: CFTimeInterval) {
@@ -237,7 +269,6 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         }
         }*/
         println("flowItem1()")
-        
         /*self.view.addSubview(itemManager.getImageView(itemManager.itemCounter))*/
         
     }

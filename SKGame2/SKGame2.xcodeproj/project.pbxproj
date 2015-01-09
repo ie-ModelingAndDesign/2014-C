@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A84C1411A5D6A3D0046CBDD /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A84C1401A5D6A3D0046CBDD /* CoreMotion.framework */; };
 		CE2414A91A31549D003B05E8 /* img4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE2414A61A31549C003B05E8 /* img4.jpg */; };
 		CE2414AA1A31549D003B05E8 /* img3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE2414A71A31549D003B05E8 /* img3.jpg */; };
 		CE2414AB1A31549D003B05E8 /* img2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE2414A81A31549D003B05E8 /* img2.jpg */; };
@@ -58,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6A84C1401A5D6A3D0046CBDD /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		CE2414A61A31549C003B05E8 /* img4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img4.jpg; sourceTree = "<group>"; };
 		CE2414A71A31549D003B05E8 /* img3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img3.jpg; sourceTree = "<group>"; };
 		CE2414A81A31549D003B05E8 /* img2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img2.jpg; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A84C1411A5D6A3D0046CBDD /* CoreMotion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +126,7 @@
 		CEEA46B01A2E500000DD2039 = {
 			isa = PBXGroup;
 			children = (
+				6A84C1401A5D6A3D0046CBDD /* CoreMotion.framework */,
 				CEEA46BB1A2E500000DD2039 /* SKGame2 */,
 				CEEA46D51A2E500000DD2039 /* SKGame2Tests */,
 				CEEA46BA1A2E500000DD2039 /* Products */,
@@ -257,6 +261,7 @@
 				TargetAttributes = {
 					CEEA46B81A2E500000DD2039 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = S3UNBN5SS6;
 					};
 					CEEA46D11A2E500000DD2039 = {
 						CreatedOnToolsVersion = 6.1;
@@ -464,9 +469,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SKGame2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -474,9 +482,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SKGame2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
