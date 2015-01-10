@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CEEA46B81A2E500000DD2039"
-               BuildableName = "SKGame2.app"
-               BlueprintName = "SKGame2"
+               BuildableName = "&#x5148;&#x751f;&#x30a6;&#x30a9;&#x30c3;&#x30c1;.app"
+               BlueprintName = "&#x5148;&#x751f;&#x30a6;&#x30a9;&#x30c3;&#x30c1;"
                ReferencedContainer = "container:SKGame2.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -31,6 +31,20 @@
                BlueprintIdentifier = "CEEA46D11A2E500000DD2039"
                BuildableName = "SKGame2Tests.xctest"
                BlueprintName = "SKGame2Tests"
+               ReferencedContainer = "container:SKGame2.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CE6092821A5623AE00966923"
+               BuildableName = "SKGame2 Tests.xctest"
+               BlueprintName = "SKGame2 Tests"
                ReferencedContainer = "container:SKGame2.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -57,8 +71,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CEEA46B81A2E500000DD2039"
-            BuildableName = "SKGame2.app"
-            BlueprintName = "SKGame2"
+            BuildableName = "&#x5148;&#x751f;&#x30a6;&#x30a9;&#x30c3;&#x30c1;.app"
+            BlueprintName = "&#x5148;&#x751f;&#x30a6;&#x30a9;&#x30c3;&#x30c1;"
             ReferencedContainer = "container:SKGame2.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -76,8 +90,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CEEA46B81A2E500000DD2039"
-            BuildableName = "SKGame2.app"
-            BlueprintName = "SKGame2"
+            BuildableName = "&#x5148;&#x751f;&#x30a6;&#x30a9;&#x30c3;&#x30c1;.app"
+            BlueprintName = "&#x5148;&#x751f;&#x30a6;&#x30a9;&#x30c3;&#x30c1;"
             ReferencedContainer = "container:SKGame2.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -94,8 +108,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CEEA46B81A2E500000DD2039"
-            BuildableName = "SKGame2.app"
-            BlueprintName = "SKGame2"
+            BuildableName = "&#x5148;&#x751f;&#x30a6;&#x30a9;&#x30c3;&#x30c1;.app"
+            BlueprintName = "&#x5148;&#x751f;&#x30a6;&#x30a9;&#x30c3;&#x30c1;"
             ReferencedContainer = "container:SKGame2.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

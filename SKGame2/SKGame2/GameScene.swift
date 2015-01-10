@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import CoreMotion
 
 class GameScene: SKScene,SKPhysicsContactDelegate {
     
@@ -50,14 +51,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         self.physicsWorld.gravity = CGVectorMake(0, -1.0)
         
         getGameData(self.gameID!)
-        
-        /* Setup your scene here
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!";
-        myLabel.fontSize = 65;
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
-        
-        self.addChild(myLabel)*/
+       
         teacher = SKSpriteNode(imageNamed: self.data.playerImage)
         teacher.xScale = 0.5
         teacher.yScale = 0.5
@@ -70,37 +64,19 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         self.addChild(teacher)
         
         gameInfo?.border = self.data.border
-        gameInfo?.stageXP = self.data.stageXP
+        gameInfo?.stageMoney = self.data.stageMoney
         
-        //myLabel.color = UIColor.redColor()
         myLabel.position = CGPoint(x:700,y:700)
         self.addChild(myLabel)
         
-        //pointLabel.color = UIColor.blueColor()
         pointLabel.position = CGPoint(x:650,y:700)
         self.addChild(pointLabel)
         println(self.difficulty)
         
-        //println(gameInfo?.timerData[gameInfo?.gameID])
-        //var time : [Double] = gameInfo?.timerData[gameInfo?.gameID][]
-    
+        
         startTimer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: "startTime", userInfo: nil, repeats: false)
         countDown = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "countdown", userInfo: nil, repeats: true)
         
-        /*if gameInfo?.difficulty > 0 {
-            timer1 = NSTimer.scheduledTimerWithTimeInterval(self.data.t1, target: self, selector: "flowItem1", userInfo: nil, repeats: true)
-        }
-        
-        if gameInfo?.difficulty > 1 {
-            timer2 = NSTimer.scheduledTimerWithTimeInterval(self.data.t2, target: self, selector: "flowItem2", userInfo: nil, repeats: true)
-        }
-        
-        if gameInfo?.difficulty > 2 {
-            timer3 = NSTimer.scheduledTimerWithTimeInterval(self.data.t3, target: self, selector: "flowItem3", userInfo: nil, repeats: true)
-        }
-        
-        
-        gameTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "Timer", userInfo: nil, repeats: true)*/
     }
     
     func startTime(){
@@ -163,6 +139,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     func finishScene(){
         time = 30
         count = 3
+        gameInfo?.get = self.point / 10
         gameInfo?.point = self.point
         gameInfo?.nextScene = 4
         delegate_escape!.sceneEscape(self)
@@ -175,33 +152,31 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             let location = touch.locationInNode(self)
             println(location)
             if(location.x < teacher.position.x){
-                teacher.position.x -= self.data.playerSpeed
-                println("go left")
+                if(teacher.position.x <= 330){
+                    teacher.position.x <= 330
+                }else{
+                    teacher.position.x -= self.data.playerSpeed
+                }
+                //println("go left")
             }else{
-                teacher.position.x += self.data.playerSpeed
+                if(teacher.position.x >= 700){
+                    teacher.position.x = 700
+                }else{
+                    teacher.position.x += self.data.playerSpeed
+                }
                 println("go right")
             }
-            /*let sprite = SKSpriteNode(imageNamed:"Spaceship")
             
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)*/
         }
     }
    
     override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
         
     }
     
     func flowItem1(){
-        var x_pos : CGFloat = CGFloat(arc4random_uniform(375) * 2)
+        var x_pos : CGFloat = CGFloat(arc4random_uniform(350) * 2)
+        if (x_pos < 320) {x_pos *= 2}
         let item1 = SKSpriteNode(imageNamed: self.data.item1)
         item1.xScale = 0.2
         item1.yScale = 0.2
@@ -211,41 +186,14 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         item1.physicsBody?.contactTestBitMask = redCategory
         item1.name = "item1"
         self.addChild(item1)
-        /*var flag : Bool = true
-        var x_pos : CGFloat = CGFloat(arc4random_uniform(375))
-        item1Image.center.x = x_pos
-        UIView.animateWithDuration(4, animations: {self.item1Image.center.y += 800}, completion: { finished in self.item1Image.center = self.defaultItemPoint
-        flag = false})*/
-        /*while flag {
-        if CGRectIntersectsRect(self.item1Image.frame, self.playerImage.frame){
-        println("collide")
-        }
-        }*/
-        
-        /*var x_pos : CGFloat = CGFloat(arc4random_uniform(375))
-        var y_pos : CGFloat = item1Image.center.y
-        println(x_pos)
-        item1Image.center.x = x_pos
-        while true {
-        println("loop")
-        y_pos += 0.05
-        item1Image.center = CGPointMake(x_pos, y_pos)
-        println(item1Image.center.y)
-        if item1Image.center.y > 700{
-        item1Image.center.y = defaultItemPoint.y
-        break
-        }
-        }*/
-        println("flowItem1()")
-        
-        /*self.view.addSubview(itemManager.getImageView(itemManager.itemCounter))*/
         
     }
 
     
     func flowItem2(){
         println("flow Item 2")
-        var x_pos : CGFloat = CGFloat(arc4random_uniform(375) * 2)
+        var x_pos : CGFloat = CGFloat(arc4random_uniform(350) * 2)
+        if (x_pos < 320) {x_pos *= 2}
         let item2 : SKSpriteNode = SKSpriteNode(imageNamed: self.data.item2)
         item2.xScale = 0.2
         item2.yScale = 0.2
@@ -258,7 +206,8 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     }
     
     func flowItem3(){
-        var x_pos : CGFloat = CGFloat(arc4random_uniform(375) * 2)
+        var x_pos : CGFloat = CGFloat(arc4random_uniform(350) * 2)
+        if (x_pos < 320) {x_pos *= 2}
         let item3 = SKSpriteNode(imageNamed: self.data.item3)
         item3.xScale = 0.2
         item3.yScale = 0.2
@@ -284,11 +233,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         }
     if(firstBody.categoryBitMask & redCategory != 0 &&
     secondBody.categoryBitMask & greenCategory != 0){
-        /*println("collide")
-        print("FirstBody is")
-        println(firstBody)
-        print("secondBody is")
-        println(secondBody)*/
+        
         println(secondBody.node?)
         if secondBody.node?.name == "item3" {
             runAction(sound3)
@@ -316,10 +261,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         self.gameID = id
     }
     
-    /*func getGameInfo(gameInfo : GameInfo) {
-        self.gameInfo = gameInfo
-    }*/
-    
+        
     func returnPoint() -> Int {
         return self.point
     }
@@ -345,7 +287,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         self.data.point2 = gameData.itemPoint[gameId][1]
         self.data.point3 = gameData.itemPoint[gameId][2]
         self.data.border = gameData.border[gameId]
-        self.data.stageXP = gameData.stageXP[gameId]
+        self.data.stageMoney = gameData.stageMoney[gameId]
     }
 
 }
@@ -363,7 +305,7 @@ class Data {
     var point2 : Int = 0
     var point3 : Int = 0
     var border : Int = 0
-    var stageXP : Float = 0
+    var stageMoney : Int = 0
     init(){
     }
 }

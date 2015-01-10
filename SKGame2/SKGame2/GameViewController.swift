@@ -6,67 +6,6 @@
 //  Copyright (c) 2014年 仁木　真人. All rights reserved.
 //
 
-/*import UIKit
-import SpriteKit
-
-extension SKNode {
-    class func unarchiveFromFile(file : NSString) -> SKNode? {
-        if let path = NSBundle.mainBundle().pathForResource(file, ofType: "sks") {
-            var sceneData = NSData(contentsOfFile: path, options: .DataReadingMappedIfSafe, error: nil)!
-            var archiver = NSKeyedUnarchiver(forReadingWithData: sceneData)
-            
-            archiver.setClass(self.classForKeyedUnarchiver(), forClassName: "SKScene")
-            let scene = archiver.decodeObjectForKey(NSKeyedArchiveRootObjectKey) as GameScene
-            archiver.finishDecoding()
-            return scene
-        } else {
-            return nil
-        }
-    }
-}
-
-class GameViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
-            // Configure the view.
-            let skView = self.view as SKView
-            skView.showsFPS = true
-            skView.showsNodeCount = true
-            
-            /* Sprite Kit applies additional optimizations to improve rendering performance */
-            skView.ignoresSiblingOrder = true
-            
-            /* Set the scale mode to scale to fit the window */
-            scene.scaleMode = .AspectFill
-            
-            skView.presentScene(scene)
-        }
-    }
-
-    override func shouldAutorotate() -> Bool {
-        return true
-    }
-
-    override func supportedInterfaceOrientations() -> Int {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return Int(UIInterfaceOrientationMask.AllButUpsideDown.rawValue)
-        } else {
-            return Int(UIInterfaceOrientationMask.All.rawValue)
-        }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
-    }
-
-    override func prefersStatusBarHidden() -> Bool {
-        return true
-    }
-}*/
 import UIKit
 import SpriteKit
 
@@ -84,11 +23,7 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
     var secondScene :SecondScene = SecondScene()
     var initScene : InitScene = InitScene()
     var profileScene : ProfileScene = ProfileScene()
-    
-    /*let selectScene = SelectScene(size: CGSizeMake(1024, 768))
-    let gameScene = GameScene(size: CGSizeMake(1024, 768))
-    let secondScene = SecondScene(size: CGSizeMake(1024, 768))*/
-
+    var flag : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,10 +33,16 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
         skView!.showsNodeCount = true
         skView!.ignoresSiblingOrder = true
         
-        loadInfo()
-        
-        goInit()
+        if loadInfo() == 1 {
+            flag = 1
+            goInit()
+        } else {
+            flag = 0
+            goInit()
+        }
     }
+    
+    
     
     func goProfile() {
         profileScene = ProfileScene(size: CGSizeMake(1024, 768))
@@ -115,6 +56,7 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
         initScene.setGameInfo(self.gameInfo)
         initScene.delegate_escape = self
         initScene.scaleMode = SKSceneScaleMode.AspectFill
+        if flag == 0{initScene.setText()}
         self.skView!.presentScene(initScene)
     }
     
@@ -162,7 +104,7 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
         self.skView!.presentScene(secondScene)
     }
     
-    func loadInfo(){
+    func loadInfo() -> Int {
         println("NSUserDefaults is working")
         let defaults = NSUserDefaults.standardUserDefaults()
         var data : [Int] = []
@@ -175,21 +117,24 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
             }
             gameInfo.locked = data[0]
             gameInfo.playerLevel = data[1]
-            gameInfo.playerXP = Float(data[2])
+            gameInfo.money = Int(data[2])
+            return 1
         }
+        return 0
     }
     
     func saveData(){
         
         var datas : [Int] = []
         
+        println("save data in core")
         println(gameInfo.locked)
         println(gameInfo.playerLevel)
-        println(gameInfo.playerXP)
+        println(gameInfo.money)
         
         datas.append(self.gameInfo.locked)
         datas.append(self.gameInfo.playerLevel)
-        datas.append(Int(self.gameInfo.playerXP))
+        datas.append(Int(self.gameInfo.money))
         
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setObject(datas, forKey:"data")
@@ -218,6 +163,8 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
                 goInit()
             } else if gameInfo.nextScene == 5 {
                 goSelect2()
+            } else if gameInfo.nextScene == 7 {
+                goProfile()
             }
         } else if scene.isKindOfClass(InitScene){
             self.gameInfo = initScene.getGameInfo()
@@ -228,15 +175,11 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
                 goSelect()
             } else if gameInfo.nextScene == 6 {
                 goSelect3()
-            } else if gameInfo.nextScene == 3 {
-                goGame()
             }
         } else if scene.isKindOfClass(SelectScene3){
             self.gameInfo = selectScene3.getGameInfo()
             if gameInfo.nextScene == 5 {
                 goSelect2()
-            } else if gameInfo.nextScene == 3 {
-                goGame()
             }
         }
     }
@@ -255,7 +198,6 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
     }
     
     override func prefersStatusBarHidden() -> Bool {

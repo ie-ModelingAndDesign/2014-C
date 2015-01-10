@@ -13,30 +13,47 @@ class SelectScene: SKScene {
     
     var delegate_escape: SceneEscapeProtocol?
         
-    var menu1 : SKSpriteNode = SKSpriteNode(imageNamed:"item1.jpeg")
+    var menu1 : SKSpriteNode = SKSpriteNode(imageNamed: "item1.jpeg")
     var menu2 : SKSpriteNode = SKSpriteNode(imageNamed: "item2.jpg")
     var menu3 : SKSpriteNode = SKSpriteNode(imageNamed: "item3.jpg")
     
+    var menu4 : SKSpriteNode = SKSpriteNode(imageNamed: "item1.jpeg")
+    
     var up : SKSpriteNode = SKSpriteNode(imageNamed: "item1.jpeg")
     var down : SKSpriteNode = SKSpriteNode(imageNamed: "item2.jpg")
-    
-    var status1 : SKLabelNode = SKLabelNode(fontNamed:"Chalkduster")
-    var status2 : SKLabelNode = SKLabelNode(fontNamed:"Chalkduster")
+    var level : SKLabelNode = SKLabelNode()
+    var money : SKLabelNode = SKLabelNode()
     
     var currentPage : Int = 1
     var gameID : Int = 0
     var gameInfo : GameInfo?
     
-    //var test : SKSpriteNode = SKSpriteNode(imageNamed: "item3.jpg")
-    
     var difficulty : Int = 1
     
     override func didMoveToView(view: SKView) {
+        
+        var l : SKLabelNode = SKLabelNode(text: "level::")
+        l.position = CGPoint(x: 350, y: 700)
+        self.addChild(l)
+        
+        var m : SKLabelNode = SKLabelNode(text: "money::")
+        m.position = CGPoint(x: 500, y: 700)
+        self.addChild(m)
+        
+        level.position = CGPoint(x:400,y:700)
+        self.addChild(level)
+        
+        money.position = CGPoint(x:600,y:700)
+        self.addChild(money)
         
         menu1.xScale = 1.2
         menu1.yScale = 0.5
         menu1.position = CGPoint(x:500,y:600)
         self.addChild(menu1)
+        menu4.xScale = 0.3
+        menu4.yScale = 0.3
+        menu4.position = CGPoint(x:650,y:600)
+        self.addChild(menu4)
         
         menu2.xScale = 1.2
         menu2.yScale = 0.5
@@ -57,20 +74,7 @@ class SelectScene: SKScene {
         down.yScale = 0.3
         down.position = CGPoint(x:700,y:150)
         self.addChild(down)
-        
-        /*test.xScale = 0.5
-        test.yScale = 0.8
-        test.position = CGPoint(x:400,y:600)
-        self.addChild(test)*/
-        
-        /* Setup your scene here */
-        /*let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "最初の画面";
-        myLabel.fontSize = 40;
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
-        
-        self.addChild(myLabel)*/
-    }
+            }
 
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         for touch: AnyObject in touches {
@@ -80,73 +84,40 @@ class SelectScene: SKScene {
             println(location)
             
             if menu1.containsPoint(location) {
-                
-                gameInfo?.difficulty = 1
-                gameInfo?.nextScene = 3
-                self.gameID = 0
-                delegate_escape!.sceneEscape(self)
+                if(gameInfo?.money >= 100){
+                    gameInfo?.money -= 100
+                    gameInfo?.difficulty = 1
+                    gameInfo?.nextScene = 3
+                    self.gameID = 0
+                    delegate_escape!.sceneEscape(self)
+                }
             } else if menu2.containsPoint(location) {
+                if(gameInfo?.money >= 300){
+                    gameInfo?.money -= 300
                 gameInfo?.difficulty = 2
                 gameInfo?.nextScene = 3
                 self.gameID = 1
                 delegate_escape!.sceneEscape(self)
+                }
             } else if menu3.containsPoint(location) {
+                if(gameInfo?.money >= 500){
+                    gameInfo?.money -= 500
                 gameInfo?.difficulty = 3
                 gameInfo?.nextScene = 3
                 self.gameID = 2
                 delegate_escape!.sceneEscape(self)
+                }
             } else if down.containsPoint(location) {
                 gameInfo?.nextScene = 5
                 delegate_escape!.sceneEscape(self)
-            }
-            
-            
-            
-        //delegate_escape!.sceneEscape(self)
-        }
-    }
-    
-    /*func changeView(page : Int){
-        if page == 1 {
-            menu1 = SKSpriteNode(imageNamed: "item1.jpeg")
-            menu2 = SKSpriteNode(imageNamed: "item2.jpg")
-            menu3 = SKSpriteNode(imageNamed: "item3.jpg")
-            
-            up = SKSpriteNode(imageNamed: "item1.jpeg")
-            down = SKSpriteNode(imageNamed: "item2.jpg")
-        } else if page == 2 {
-            menu1 = SKSpriteNode(imageNamed: "img1.jpg")
-            menu2 = SKSpriteNode(imageNamed: "img2.jpg")
-            menu3 = SKSpriteNode(imageNamed: "img3.jpg")
-            
-            up = SKSpriteNode(imageNamed: "item2.jpg")
-            down = SKSpriteNode(imageNamed: "item2.jpg")
-        } else if page == 3 {
-            menu1 = SKSpriteNode(imageNamed: "img4.jpg")
-            menu2 = SKSpriteNode(imageNamed: "img5.jpg")
-            menu3 = SKSpriteNode(imageNamed: "img6.jpg")
-            
-            up = SKSpriteNode(imageNamed: "item2.jpg")
-            down = SKSpriteNode(imageNamed: "item1.jpeg")
-        }
-    }*/
-    
-    /*override func touchesMoved(touches: NSSet, withEvent event: UIEvent){
-        for touch: AnyObject in touches {
-            
-            let location = touch.locationInNode(self)
-            if test.containsPoint(location) {
-                test.position = location
+            } else if menu4.containsPoint(location) {
+                gameInfo?.gameID = 0
+                gameInfo?.nextScene = 7
+                delegate_escape!.sceneEscape(self)
             }
         }
     }
     
-    override func touchesEnded(touches: NSSet, withEvent event: UIEvent){
-        for touch: AnyObject in touches {
-            let location = touch.locationInNode(self)
-            
-        }
-    }*/
     
     func getDifficulty() -> Int{
         return self.difficulty
@@ -162,9 +133,8 @@ class SelectScene: SKScene {
     
     func setGameInfo(gameInfo : GameInfo) {
         self.gameInfo = gameInfo
+        level.text = String(gameInfo.playerLevel)
+        money.text = String(gameInfo.money)
     }
     
-    /*func getGameInfo(gameInfo : GameInfo) {
-        self.gameInfo = gameInfo
-    }*/
 }

@@ -18,31 +18,47 @@ class SecondScene: SKScene {
     
     let backLabel = SKLabelNode(fontNamed: "Chalkduster")
     let retryLabel = SKLabelNode(fontNamed: "Chalkduster")
+    var moneyLabel = SKLabelNode(fontNamed: "Chalkduster")
+
     
     var success : SKAction = SKAction.playSoundFileNamed("success.mp3", waitForCompletion: false)
     var fault : SKAction = SKAction.playSoundFileNamed("fault.mp3", waitForCompletion: false)
     
     override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
+        
+        let mLabel = SKLabelNode(fontNamed:"Chalkduster")
+        mLabel.text = "money:"
+        mLabel.fontSize = 40;
+        mLabel.position = CGPoint(x:CGRectGetMidX(self.frame)-100, y:CGRectGetMidY(self.frame));
+        self.addChild(mLabel)
+        
+        moneyLabel.position = CGPoint(x:CGRectGetMidX(self.frame)+30, y:CGRectGetMidY(self.frame));
+        moneyLabel.fontSize = 40;
+        self.addChild(moneyLabel)
+        
         let myLabel = SKLabelNode(fontNamed:"Chalkduster")
         myLabel.text = "Point:";
         myLabel.fontSize = 40;
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
+        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame)-100, y:CGRectGetMidY(self.frame)+200);
         self.addChild(myLabel)
         
         let pointLabel = SKLabelNode(fontNamed: "Chalkduster")
         var score = gameInfo?.point
         pointLabel.text = String(score!)
         pointLabel.fontSize = 40;
-        pointLabel.position = CGPoint(x:CGRectGetMidX(self.frame) + 120, y:CGRectGetMidY(self.frame));
+        pointLabel.position = CGPoint(x:CGRectGetMidX(self.frame)+30 , y:CGRectGetMidY(self.frame)+200);
         self.addChild(pointLabel)
         
         let statusLabel = SKLabelNode(fontNamed: "Chalkduster")
         
         if gamePoint >= gameInfo?.border {
+            var m = gameInfo?.getMoney(1)
+            moneyLabel.text =  String(m!)
             runAction(success)
             statusLabel.text = "勝ち"
         }else {
+            var m = gameInfo?.getMoney(0)
+            moneyLabel.text = String(m!)
             runAction(fault)
             statusLabel.text = "負け"
         }

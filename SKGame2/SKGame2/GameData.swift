@@ -16,13 +16,13 @@ class GameData {
     
     let playerSpeed : CGFloat = 20
     
-    let timer : [[Double]] = [[2, 0, 0], [2, 2, 0], [1,1,1], [1,1,0.2]]
+    let timer : [[Double]] = [[2, 0, 0], [2, 2, 0], [0.5,0.5,1], [1,5,0.5]]
     
-    let itemPoint : [[Int]] = [[100, 0, 0], [100, 300, 0], [100, 300, -300], [100, 300, -5000]]
+    let itemPoint : [[Int]] = [[100, 0, 0], [100, 300, 0], [100, 300, -300], [100, 5000, -1000]]
     
-    let border : [Int] = [1000, 2000, 3000, 10000]
+    let border : [Int] = [700, 2000, 3000, 10000]
     
-    let stageXP : [Float] = [25, 50, 100, 150]
+    let stageMoney : [Int] = [3, 1, 1, 1]
     
     init(){
         
