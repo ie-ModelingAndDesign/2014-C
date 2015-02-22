@@ -26,6 +26,7 @@ class SecondScene: SKScene {
         let myLabel = SKLabelNode(fontNamed:"Chalkduster")
         myLabel.text = "Point:";
         myLabel.fontSize = 40;
+        myLabel.fontColor = SKColor.blueColor();
         myLabel.position = CGPoint(x:CGRectGetMidX(self.frame)-100, y:CGRectGetMidY(self.frame)+200);
         self.addChild(myLabel)
         
@@ -33,6 +34,7 @@ class SecondScene: SKScene {
         var score = gameInfo?.point
         pointLabel.text = String(score!)
         pointLabel.fontSize = 40;
+        pointLabel.fontColor = SKColor.blueColor();
         pointLabel.position = CGPoint(x:CGRectGetMidX(self.frame)+30 , y:CGRectGetMidY(self.frame)+200);
         self.addChild(pointLabel)
         
@@ -54,16 +56,19 @@ class SecondScene: SKScene {
             statusLabel.text = "留年"
         }
         statusLabel.fontSize = 40
+        statusLabel.fontColor = SKColor.blueColor();
         statusLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame) - 150);
         self.addChild(statusLabel)
       
         backLabel.text = "メニューに戻る"
         backLabel.fontSize = 40
+        backLabel.fontColor = SKColor.blueColor();
         backLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame) - 270);
         self.addChild(backLabel)
         
         retryLabel.text = "もう一度"
         retryLabel.fontSize = 40
+        retryLabel.fontColor = SKColor.blueColor();
         retryLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame) - 330);
         self.addChild(retryLabel)
     }
