@@ -107,7 +107,7 @@ class CustomDialog : UIView{
         if (gamedata.dislike[id] != "none"){
             itemaline += 20;
             let itemView3 = UILabel(frame: CGRectMake(0, 0, 200,50))
-            itemView3.text = "Dislike     : " + gamedata.dislike[id] + "   -300pt"
+            itemView3.text = "Dislike     : " + gamedata.dislike[id] + "   -500pt"
             itemView3.font = UIFont(name: "HiraKakuProN-W3", size: 10)
             itemView3.textAlignment = NSTextAlignment.Left
             itemView3.layer.position = CGPoint(x:backGroundView.bounds.width / 2, y:backGroundView.bounds.height / 2 + itemaline)

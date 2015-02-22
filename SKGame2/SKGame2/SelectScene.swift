@@ -12,19 +12,20 @@ import SpriteKit
 class SelectScene: SKScene {
     
     var delegate_escape: SceneEscapeProtocol?
-        
+    
     var menu1 : SKSpriteNode = SKSpriteNode(imageNamed: "wada-to.png")//あとでボタン画像に差し替え最初の難易度選択
     var menu2 : SKSpriteNode = SKSpriteNode(imageNamed: "tamaki-to.png")
     var menu3 : SKSpriteNode = SKSpriteNode(imageNamed: "yamada-to.png")
     
     var menu4 : SKSpriteNode = SKSpriteNode(imageNamed: "okazaki-to.png")
     var menu5 : SKSpriteNode = SKSpriteNode(imageNamed: "kono-to.png")
-
+    
     //背景指定
     let sprBG : SKSpriteNode = SKSpriteNode(imageNamed:"background.png")
     
     
     var level : SKLabelNode = SKLabelNode()
+    
     
     var currentPage : Int = 1
     var gameID : Int = 0
@@ -39,11 +40,13 @@ class SelectScene: SKScene {
         sprBG.position = CGPointMake(self.frame.size.width*0.53, self.frame.size.height*0.5)
         self.addChild(sprBG)
         
-        var l : SKLabelNode = SKLabelNode(text: "学年::")
-        l.position = CGPoint(x: 350, y: 700)
+        var l : SKLabelNode = SKLabelNode(text: "学年 ")
+        l.position = CGPoint(x: 360, y: 700)
+        l.fontSize = 45;
+        l.fontColor = SKColor.blueColor()
         self.addChild(l)
         
-        level.position = CGPoint(x:400,y:700)
+        level.position = CGPoint(x:450,y:700)
         self.addChild(level)
         
         menu1.xScale = 1.2
@@ -66,18 +69,18 @@ class SelectScene: SKScene {
         menu4.yScale = 0.5
         menu4.position = CGPoint(x:500,y:240)
         self.addChild(menu4)
-
+        
         
         menu5.xScale = 1.2
         menu5.yScale = 0.5
         menu5.position = CGPoint(x:500,y:120)
         self.addChild(menu5)
         
-    
+        
         
         
     }
-
+    
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         for touch: AnyObject in touches {
             
@@ -127,6 +130,9 @@ class SelectScene: SKScene {
     func setGameInfo(gameInfo : GameInfo) {
         self.gameInfo = gameInfo
         level.text = String(gameInfo.playerLevel)
+        level.fontSize = 45;
+        level.fontColor = SKColor.blueColor();
+        level.fontName = "Arial Bold";
     }
     
     
