@@ -39,7 +39,7 @@ class CustomDialog2 : UIView{
         
         // ダイアログの背景を追加.
         let board = UIView(frame: frame)
-        board.backgroundColor = UIColor.redColor()
+        board.backgroundColor = UIColor.brownColor()
         board.layer.position = backGroundView.center
         board.layer.masksToBounds = true
         board.layer.cornerRadius = 20.0

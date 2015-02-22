@@ -20,6 +20,7 @@
 		6A0041741A9A2A70009DD922 /* tamaki_pr.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A00416C1A9A2A70009DD922 /* tamaki_pr.png */; };
 		6A0041751A9A2A70009DD922 /* wada_pr.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A00416D1A9A2A70009DD922 /* wada_pr.png */; };
 		6A0041771A9A2F55009DD922 /* welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A0041761A9A2F55009DD922 /* welcome.png */; };
+		6A0041791A9A39F7009DD922 /* kono_pr.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6A0041781A9A39F7009DD922 /* kono_pr.jpeg */; };
 		6A0810401A77527200F320CF /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A08103F1A77527200F320CF /* CoreMotion.framework */; };
 		6A0810421A77559000F320CF /* ロゴ.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6A0810411A77559000F320CF /* ロゴ.jpeg */; };
 		6F201D311A9A3225008C7EDA /* wada.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F201D301A9A3225008C7EDA /* wada.png */; };
@@ -97,6 +98,7 @@
 		6A00416C1A9A2A70009DD922 /* tamaki_pr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tamaki_pr.png; sourceTree = "<group>"; };
 		6A00416D1A9A2A70009DD922 /* wada_pr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wada_pr.png; sourceTree = "<group>"; };
 		6A0041761A9A2F55009DD922 /* welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome.png; sourceTree = "<group>"; };
+		6A0041781A9A39F7009DD922 /* kono_pr.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kono_pr.jpeg; sourceTree = "<group>"; };
 		6A08103F1A77527200F320CF /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		6A0810411A77559000F320CF /* ロゴ.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ロゴ.jpeg"; sourceTree = "<group>"; };
 		6F201D301A9A3225008C7EDA /* wada.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wada.png; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				CED687E61A38042B001F6AAB /* ein.jpg */,
 				6A0041661A9A2A6F009DD922 /* background_bad.png */,
 				6A0041671A9A2A70009DD922 /* background_game.png */,
+				6A0041781A9A39F7009DD922 /* kono_pr.jpeg */,
 				6A0041681A9A2A70009DD922 /* background_good.png */,
 				6A0041691A9A2A70009DD922 /* background.jpg */,
 				6A00416A1A9A2A70009DD922 /* background.png */,
@@ -414,6 +417,7 @@
 				CED687EB1A386D33001F6AAB /* movie1.mp4 in Resources */,
 				6A00416E1A9A2A70009DD922 /* background_bad.png in Resources */,
 				6FF6F9C41A9A1B3E00C1A90D /* wada-to.png in Resources */,
+				6A0041791A9A39F7009DD922 /* kono_pr.jpeg in Resources */,
 				CE2414B51A3154B7003B05E8 /* img1.jpg in Resources */,
 				CEEA46E91A2E50F200DD2039 /* kono3.jpg in Resources */,
 				CED687EF1A389611001F6AAB /* sound1.mp3 in Resources */,

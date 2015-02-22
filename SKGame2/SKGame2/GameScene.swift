@@ -61,6 +61,8 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         getGameData(self.gameID!)
        
         teacher = SKSpriteNode(imageNamed: self.data.playerImage)
+        teacher.xScale = 1.5
+        teacher.yScale = 1.5
         teacher.position = CGPoint(x:500, y:100)
         teacher.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(50, 50))
         teacher.physicsBody?.affectedByGravity = false
