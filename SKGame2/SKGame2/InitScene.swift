@@ -70,5 +70,9 @@ class InitScene : SKScene  {
     func getGameInfo() -> GameInfo {
         return self.gameInfo!
     }
+    
+    func setText(){
+        sLabel.text = "ようこそ！情報工学科へ"
+    }
 
 }
