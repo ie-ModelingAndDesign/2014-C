@@ -39,9 +39,17 @@ class SecondScene: SKScene {
         let statusLabel = SKLabelNode(fontNamed: "Chalkduster")
         
         if gamePoint >= gameInfo?.border {
+            //背景指定
+            let sprBG : SKSpriteNode = SKSpriteNode(imageNamed:"background_good.png")
+            sprBG.position = CGPointMake(self.frame.size.width*0.53, self.frame.size.height*0.5)
+            self.addChild(sprBG)
             runAction(success)
             statusLabel.text = "単位取得！"
         }else {
+            //背景指定
+            let sprBG : SKSpriteNode = SKSpriteNode(imageNamed:"background_bad.png")
+            sprBG.position = CGPointMake(self.frame.size.width*0.53, self.frame.size.height*0.5)
+            self.addChild(sprBG)
             runAction(fault)
             statusLabel.text = "留年"
         }

@@ -45,10 +45,16 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     var sound1 : SKAction = SKAction.playSoundFileNamed("sound1.mp3", waitForCompletion: false)
     var sound2 : SKAction = SKAction.playSoundFileNamed("sound2.mp3", waitForCompletion: false)
     var sound3 : SKAction = SKAction.playSoundFileNamed("sound3.mp3", waitForCompletion: false)
+    //背景設定
+    let sprBG : SKSpriteNode = SKSpriteNode(imageNamed:"background_game.png")
     
     var myMotionManager: CMMotionManager!//加速度センサ
     
     override func didMoveToView(view: SKView) {
+        //背景指定
+        sprBG.position = CGPointMake(self.frame.size.width*0.53, self.frame.size.height*0.5)
+        self.addChild(sprBG)
+        
         self.physicsWorld.contactDelegate = self
         self.physicsWorld.gravity = CGVectorMake(0, -1.0)
         
@@ -143,6 +149,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             timer2?.invalidate()
             timer3?.invalidate()
             gameTimer?.invalidate()
+            
             
             let finishLabel = SKLabelNode(text: "Finish!")
             finishLabel.fontSize = 60

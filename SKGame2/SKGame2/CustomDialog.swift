@@ -14,6 +14,7 @@ class CustomDialog : UIView{
     let gamedata : GameData = GameData()
     var gameflag : Bool?
     let selectScene : SelectScene?
+    var game_id:Int = 0
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -28,6 +29,7 @@ class CustomDialog : UIView{
         // 自分が追加されたシーン.
         self.scene = scene
         self.delegate_escape = seaneESCP
+        self.game_id = id
         
         // シーン内をポーズ.
         self.scene.view!.paused = true
@@ -172,30 +174,22 @@ class CustomDialog : UIView{
         
         // シーン内のボーズを解除.
         self.scene.view!.paused = false
-        println("******test1******")
         
         // シーン内のタッチを検出させる.
         self.scene.userInteractionEnabled = true
-        println("******test2******")
         
         // シーンから自身を削除.
         self.removeFromSuperview()
-        println("******test3******")
         
+        //ゲームシーンへ
         self.delegate_escape?.sceneEscape(self.scene)
         
-        
-        //println(self)
-        
-        //ゲームシーンの開始
-        //delegate_escape!.sceneEscape(self.scene)
-        //println("******test4******")
     }
     
     func onClickMyButton2(sender : UIButton){
         
         //図鑑を表示
-        let dialog = CustomDialog2(scene: scene, frame:CGRectMake(0, 0, 320, 550))
+        let dialog = CustomDialog2(id:self.game_id,scene: scene, frame:CGRectMake(0, 0, 320, 550))
         scene.view!.addSubview(dialog)
         
     }

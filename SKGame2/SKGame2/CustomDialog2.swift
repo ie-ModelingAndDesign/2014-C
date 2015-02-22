@@ -11,12 +11,13 @@ class CustomDialog2 : UIView{
     var backGroundView : UIView!
     var scene : SKScene!
     var delegate_escape: SceneEscapeProtocol?
+    let gamedata : GameData = GameData()
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    init(scene : SKScene,frame : CGRect){
+    init(id : Int,scene : SKScene,frame : CGRect){
         super.init(frame: scene.view!.bounds)
         
         // 自分が追加されたシーン.
@@ -47,7 +48,7 @@ class CustomDialog2 : UIView{
         
         // 画像を追加
         let myImageView: UIImageView = UIImageView(frame: CGRectMake(10,40,300,500))
-        let myImage = UIImage(named: "background.jpg")
+        let myImage = UIImage(named: gamedata.profile[id])
         myImageView.image = myImage
         self.addSubview(myImageView)
         

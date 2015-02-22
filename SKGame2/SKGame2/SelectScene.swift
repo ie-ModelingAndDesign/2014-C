@@ -20,6 +20,8 @@ class SelectScene: SKScene {
     var menu4 : SKSpriteNode = SKSpriteNode(imageNamed: "okazaki-to.png")
     var menu5 : SKSpriteNode = SKSpriteNode(imageNamed: "kono-to.png")
 
+    //背景指定
+    let sprBG : SKSpriteNode = SKSpriteNode(imageNamed:"background.png")
     
     
     var level : SKLabelNode = SKLabelNode()
@@ -33,6 +35,9 @@ class SelectScene: SKScene {
     var dialog : CustomDialog!
     
     override func didMoveToView(view: SKView) {
+        //背景指定
+        sprBG.position = CGPointMake(self.frame.size.width*0.53, self.frame.size.height*0.5)
+        self.addChild(sprBG)
         
         var l : SKLabelNode = SKLabelNode(text: "学年::")
         l.position = CGPoint(x: 350, y: 700)

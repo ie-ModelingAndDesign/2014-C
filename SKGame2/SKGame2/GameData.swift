@@ -29,6 +29,7 @@ class GameData {
     let like : [String] = ["すきやき", "ヤギ", "SF小説"]
     let dislike : [String] = ["蜘蛛", "none", "かたゆでたまご"]
     let morelike : [String] = ["none", "愛", "ハリーズのカレー"]
+    let profile : [String] = ["wada_pr", "tamaki_pr", "kono_pr"]
     
     init(){
         
