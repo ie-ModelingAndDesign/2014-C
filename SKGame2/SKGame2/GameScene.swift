@@ -155,6 +155,10 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             finishLabel.fontSize = 60
             finishLabel.position = CGPoint(x:500,y:500)
             self.removeAllChildren()
+
+            sprBG.position = CGPointMake(self.frame.size.width*0.53, self.frame.size.height*0.5)
+            self.addChild(sprBG)
+
             self.addChild(finishLabel)
             
             var finishScene = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: "finishScene", userInfo: nil, repeats: false)
@@ -210,9 +214,9 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     func flowItem1(){
         var x_pos : CGFloat = CGFloat(arc4random_uniform(350) * 2)
         if (x_pos < 320) {x_pos *= 2}
-        let item1 = SKSpriteNode(imageNamed: self.data.item1)
-        item1.xScale = 0.2
-        item1.yScale = 0.2
+        let item1 = SKSpriteNode(imageNamed: self.gameData.itemImage[gameID!][0])
+        item1.xScale = 0.5
+        item1.yScale = 0.5
         item1.position = CGPoint(x: /*500*/x_pos,y: 800)
         item1.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(70, 50))
         item1.physicsBody?.categoryBitMask = greenCategory
@@ -227,9 +231,9 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         println("flow Item 2")
         var x_pos : CGFloat = CGFloat(arc4random_uniform(350) * 2)
         if (x_pos < 320) {x_pos *= 2}
-        let item2 : SKSpriteNode = SKSpriteNode(imageNamed: self.data.item2)
-        item2.xScale = 0.2
-        item2.yScale = 0.2
+        let item2 : SKSpriteNode = SKSpriteNode(imageNamed: self.gameData.itemImage[gameID!][1])
+        item2.xScale = 0.5
+        item2.yScale = 0.5
         item2.position = CGPoint(x: /*500*/x_pos,y: 800)
         item2.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(70, 50))
         item2.physicsBody?.categoryBitMask = greenCategory
@@ -241,9 +245,9 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     func flowItem3(){
         var x_pos : CGFloat = CGFloat(arc4random_uniform(350) * 2)
         if (x_pos < 320) {x_pos *= 2}
-        let item3 = SKSpriteNode(imageNamed: self.data.item3)
-        item3.xScale = 0.2
-        item3.yScale = 0.2
+        let item3 = SKSpriteNode(imageNamed: self.gameData.itemImage[gameID!][2])
+        item3.xScale = 0.5
+        item3.yScale = 0.5
         item3.position = CGPoint(x: /*500*/x_pos,y: 800)
         item3.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(70, 50))
         item3.physicsBody?.categoryBitMask = greenCategory

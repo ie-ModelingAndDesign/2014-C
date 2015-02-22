@@ -94,13 +94,13 @@ class SelectScene: SKScene {
                 self.view!.addSubview(dialog)
                 
             } else if menu2.containsPoint(location) {
-                gameInfo?.difficulty = 1
+                gameInfo?.difficulty = 2
                 gameInfo?.nextScene = 3
                 self.gameID = 1//ここで先生を指定
                 dialog = CustomDialog(id:self.gameID , scene: self, frame:CGRectMake(0, 0, self.view!.bounds.maxX - 50, 300), seaneESCP: delegate_escape!)
                 self.view!.addSubview(dialog)
             } else if menu5.containsPoint(location) {
-                gameInfo?.difficulty = 1
+                gameInfo?.difficulty = 3
                 gameInfo?.nextScene = 3
                 self.gameID = 2//ここで先生を指定
                 dialog = CustomDialog(id:self.gameID , scene: self, frame:CGRectMake(0, 0, self.view!.bounds.maxX - 50, 300), seaneESCP: delegate_escape!)

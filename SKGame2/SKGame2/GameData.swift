@@ -10,9 +10,9 @@ import Foundation
 import SpriteKit
 
 class GameData {
-    let playerImage : [String] = ["item1.jpeg", "yamada.png", "img8.jpg", "img5.jpg"]  //playerと選択時の画面変更
+    let playerImage : [String] = ["wada.png", "takaki.png", "kono.png", "img5.jpg"]  //playerと選択時の画面変更
     
-    let itemImage : [[String]] = [["item1.jpeg", "item2.jpg", "item3.jpg"], ["img2.jpg", "img3.jpg", "img4.jpg"], ["img5.jpg", "img6.jpg", "img7.jpg"], ["img3.jpg", "img9.jpg", "img6.jpg"]]
+    let itemImage : [[String]] = [["sukiyaki.png", "item2.jpg", "item3.jpg"], ["yagi.png", "love.png", "img4.jpg"], ["syousetu.png", "curry.png", "tamago.png"], ["img3.jpg", "img9.jpg", "img6.jpg"]]
     
     let playerSpeed : CGFloat = 20
     
@@ -22,12 +22,10 @@ class GameData {
     
     let border : [Int] = [700, 2000, 3000, 10000]
     
-    let stageMoney : [Int] = [3, 1, 1, 1]
-    
     let name : [String] = ["和田知久", "玉城史郎", "河野真治"]
     let subject : [String] = ["情報倫理", "情報数学", "OS"]
     let like : [String] = ["すきやき", "ヤギ", "SF小説"]
-    let dislike : [String] = ["蜘蛛", "none", "かたゆでたまご"]
+    let dislike : [String] = ["none", "none", "かたゆでたまご"]
     let morelike : [String] = ["none", "愛", "ハリーズのカレー"]
     let profile : [String] = ["wada_pr", "tamaki_pr", "kono_pr"]
     
