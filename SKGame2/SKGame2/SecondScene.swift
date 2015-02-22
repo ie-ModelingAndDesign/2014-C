@@ -18,24 +18,11 @@ class SecondScene: SKScene {
     
     let backLabel = SKLabelNode(fontNamed: "Chalkduster")
     let retryLabel = SKLabelNode(fontNamed: "Chalkduster")
-    var moneyLabel = SKLabelNode(fontNamed: "Chalkduster")
-
     
     var success : SKAction = SKAction.playSoundFileNamed("success.mp3", waitForCompletion: false)
     var fault : SKAction = SKAction.playSoundFileNamed("fault.mp3", waitForCompletion: false)
     
     override func didMoveToView(view: SKView) {
-        
-        let mLabel = SKLabelNode(fontNamed:"Chalkduster")
-        mLabel.text = "money:"
-        mLabel.fontSize = 40;
-        mLabel.position = CGPoint(x:CGRectGetMidX(self.frame)-100, y:CGRectGetMidY(self.frame));
-        self.addChild(mLabel)
-        
-        moneyLabel.position = CGPoint(x:CGRectGetMidX(self.frame)+30, y:CGRectGetMidY(self.frame));
-        moneyLabel.fontSize = 40;
-        self.addChild(moneyLabel)
-        
         let myLabel = SKLabelNode(fontNamed:"Chalkduster")
         myLabel.text = "Point:";
         myLabel.fontSize = 40;
@@ -52,13 +39,9 @@ class SecondScene: SKScene {
         let statusLabel = SKLabelNode(fontNamed: "Chalkduster")
         
         if gamePoint >= gameInfo?.border {
-            var m = gameInfo?.getMoney(1)
-            moneyLabel.text =  String(m!)
             runAction(success)
             statusLabel.text = "単位取得！"
         }else {
-            var m = gameInfo?.getMoney(0)
-            moneyLabel.text = String(m!)
             runAction(fault)
             statusLabel.text = "留年"
         }
@@ -69,7 +52,7 @@ class SecondScene: SKScene {
         backLabel.text = "メニューに戻る"
         backLabel.fontSize = 40
         backLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame) - 270);
-        self.addChild(backLabel)
+        s/Users/e125769/Development/2014-C/SKGame2/SKGame2/fault.mp3elf.addChild(backLabel)
         
         retryLabel.text = "もう一度"
         retryLabel.fontSize = 40

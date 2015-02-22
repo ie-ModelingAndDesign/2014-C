@@ -18,7 +18,6 @@ class SelectScene: SKScene {
     var menu3 : SKSpriteNode = SKSpriteNode(imageNamed: "item3.jpg")
     
     var level : SKLabelNode = SKLabelNode()
-    var money : SKLabelNode = SKLabelNode()
     
     var currentPage : Int = 1
     var gameID : Int = 0
@@ -34,15 +33,8 @@ class SelectScene: SKScene {
         l.position = CGPoint(x: 350, y: 700)
         self.addChild(l)
         
-        var m : SKLabelNode = SKLabelNode(text: "money::")
-        m.position = CGPoint(x: 500, y: 700)
-        self.addChild(m)
-        
         level.position = CGPoint(x:400,y:700)
         self.addChild(level)
-        
-        money.position = CGPoint(x:600,y:700)
-        self.addChild(money)
         
         menu1.xScale = 1.2
         menu1.yScale = 0.5
@@ -109,7 +101,6 @@ class SelectScene: SKScene {
     func setGameInfo(gameInfo : GameInfo) {
         self.gameInfo = gameInfo
         level.text = String(gameInfo.playerLevel)
-        money.text = String(gameInfo.money)
     }
     
     

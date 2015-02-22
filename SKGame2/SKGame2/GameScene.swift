@@ -55,8 +55,6 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         getGameData(self.gameID!)
        
         teacher = SKSpriteNode(imageNamed: self.data.playerImage)
-        teacher.xScale = 0.5
-        teacher.yScale = 0.5
         teacher.position = CGPoint(x:500, y:100)
         teacher.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(50, 50))
         teacher.physicsBody?.affectedByGravity = false
@@ -66,7 +64,6 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         self.addChild(teacher)
         
         gameInfo?.border = self.data.border
-        gameInfo?.stageMoney = self.data.stageMoney
         
         myLabel.position = CGPoint(x:700,y:700)
         self.addChild(myLabel)
@@ -316,7 +313,6 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         self.data.point2 = gameData.itemPoint[gameId][1]
         self.data.point3 = gameData.itemPoint[gameId][2]
         self.data.border = gameData.border[gameId]
-        self.data.stageMoney = gameData.stageMoney[gameId]
     }
 
 }
@@ -334,7 +330,6 @@ class Data {
     var point2 : Int = 0
     var point3 : Int = 0
     var border : Int = 0
-    var stageMoney : Int = 0
     init(){
     }
 }

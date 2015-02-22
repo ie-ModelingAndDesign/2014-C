@@ -56,7 +56,6 @@ class InitScene : SKScene  {
                 gameInfo?.nextScene = 2
                 gameInfo?.playerLevel = 1
                 gameInfo?.locked = 3
-                gameInfo?.money = 1000
                 delegate_escape!.sceneEscape(self)
             }
         }

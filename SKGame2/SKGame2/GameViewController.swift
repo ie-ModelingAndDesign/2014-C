@@ -117,7 +117,6 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
             }
             gameInfo.locked = data[0]
             gameInfo.playerLevel = data[1]
-            gameInfo.money = Int(data[2])
             return 1
         }
         return 0
@@ -130,11 +129,9 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
         println("save data in core")
         println(gameInfo.locked)
         println(gameInfo.playerLevel)
-        println(gameInfo.money)
         
         datas.append(self.gameInfo.locked)
         datas.append(self.gameInfo.playerLevel)
-        datas.append(Int(self.gameInfo.money))
         
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setObject(datas, forKey:"data")
