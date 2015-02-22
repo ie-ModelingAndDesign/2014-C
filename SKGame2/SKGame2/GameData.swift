@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 
 class GameData {
-    let playerImage : [String] = ["item1.jpeg", "img1.jpg", "img8.jpg", "img5.jpg"]
+    let playerImage : [String] = ["item1.jpeg", "yamada.png", "img8.jpg", "img5.jpg"]  //playerと選択時の画面変更
     
     let itemImage : [[String]] = [["item1.jpeg", "item2.jpg", "item3.jpg"], ["img2.jpg", "img3.jpg", "img4.jpg"], ["img5.jpg", "img6.jpg", "img7.jpg"], ["img3.jpg", "img9.jpg", "img6.jpg"]]
     
@@ -24,11 +24,11 @@ class GameData {
     
     let stageMoney : [Int] = [3, 1, 1, 1]
     
-    let name : [String] = ["河野真治", "name2", "name3"]
-    let subject : [String] = ["OS", "name2", "name3"]
-    let like : [String] = ["SF小説", "item2", "item3"]
-    let dislike : [String] = ["かたゆでたまご", "item2", "item3"]
-    let morelike : [String] = ["ハリーズのカレー", "item2", "item3"]
+    let name : [String] = ["和田知久", "玉城史郎", "河野真治"]
+    let subject : [String] = ["情報倫理", "情報数学", "OS"]
+    let like : [String] = ["すきやき", "ヤギ", "SF小説"]
+    let dislike : [String] = ["蜘蛛", "none", "かたゆでたまご"]
+    let morelike : [String] = ["none", "愛", "ハリーズのカレー"]
     
     init(){
         

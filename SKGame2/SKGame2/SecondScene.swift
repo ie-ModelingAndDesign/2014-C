@@ -52,7 +52,7 @@ class SecondScene: SKScene {
         backLabel.text = "メニューに戻る"
         backLabel.fontSize = 40
         backLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame) - 270);
-        s/Users/e125769/Development/2014-C/SKGame2/SKGame2/fault.mp3elf.addChild(backLabel)
+        self.addChild(backLabel)
         
         retryLabel.text = "もう一度"
         retryLabel.fontSize = 40
