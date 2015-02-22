@@ -155,6 +155,10 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             finishLabel.fontSize = 60
             finishLabel.position = CGPoint(x:500,y:500)
             self.removeAllChildren()
+
+            sprBG.position = CGPointMake(self.frame.size.width*0.53, self.frame.size.height*0.5)
+            self.addChild(sprBG)
+
             self.addChild(finishLabel)
             
             var finishScene = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: "finishScene", userInfo: nil, repeats: false)
