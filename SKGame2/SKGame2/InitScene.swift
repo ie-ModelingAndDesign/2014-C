@@ -19,11 +19,17 @@ class InitScene : SKScene  {
     let myLabel = SKLabelNode(fontNamed:"Chalkduster")
     let sLabel = SKLabelNode(text:"続きからウォッチ")
     let rLabel = SKLabelNode(fontNamed:"Chalkduster")
+    //背景指定
+    let sprBG : SKSpriteNode = SKSpriteNode(imageNamed:"welcome.png")
 
     
     override func didMoveToView(view: SKView) {
         
-        myLabel.text = "先生ウォッチ";
+        //背景指定
+        sprBG.position = CGPointMake(self.frame.size.width*0.53, self.frame.size.height*0.5)
+        self.addChild(sprBG)
+
+        myLabel.text = "ようこそ情報工学科へ！";
         myLabel.fontSize = 40;
         myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame)+150);
         self.addChild(myLabel)
@@ -63,10 +69,6 @@ class InitScene : SKScene  {
     
     func getGameInfo() -> GameInfo {
         return self.gameInfo!
-    }
-    
-    func setText(){
-        sLabel.text = "ようこそ！情報工学科へ"
     }
 
 }

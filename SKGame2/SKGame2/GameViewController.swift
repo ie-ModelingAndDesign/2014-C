@@ -17,12 +17,9 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
     
     var gameInfo : GameInfo = GameInfo()
     var selectScene : SelectScene = SelectScene()
-    var selectScene2 : SelectScene2 = SelectScene2()
-    var selectScene3 : SelectScene3 = SelectScene3()
     var gameScene : GameScene? = GameScene()
     var secondScene :SecondScene = SecondScene()
     var initScene : InitScene = InitScene()
-    var profileScene : ProfileScene = ProfileScene()
     var flag : Int = 0
     
     override func viewDidLoad() {
@@ -43,14 +40,6 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
     }
     
     
-    
-    func goProfile() {
-        profileScene = ProfileScene(size: CGSizeMake(1024, 768))
-        profileScene.delegate_escape = self
-        profileScene.scaleMode = SKSceneScaleMode.AspectFill
-        self.skView!.presentScene(profileScene)
-    }
-    
     func goInit() {
         initScene = InitScene(size: CGSizeMake(1024, 768))
         initScene.setGameInfo(self.gameInfo)
@@ -67,23 +56,7 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
         selectScene.scaleMode = SKSceneScaleMode.AspectFill
         self.skView!.presentScene(selectScene)
     }
-    
-    func goSelect2() {
-        selectScene2 = SelectScene2(size: CGSizeMake(1024, 768))
-        selectScene2.setGameInfo(self.gameInfo)
-        selectScene2.delegate_escape = self
-        selectScene2.scaleMode = SKSceneScaleMode.AspectFill
-        self.skView!.presentScene(selectScene2)
-    }
-    
-    func goSelect3() {
-        selectScene3 = SelectScene3(size: CGSizeMake(1024, 768))
-        selectScene3.setGameInfo(self.gameInfo)
-        selectScene3.delegate_escape = self
-        selectScene3.scaleMode = SKSceneScaleMode.AspectFill
-        self.skView!.presentScene(selectScene3)
-    }
-    
+        
     func goGame() {
         gameScene = GameScene(size: CGSizeMake(1024, 768))
         gameScene!.setGameInfo(self.gameInfo)
@@ -156,30 +129,9 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
             println("in sceneEscape");
             self.gameInfo = selectScene.getGameInfo()
             goGame()
-            /*if gameInfo.nextScene == 3 {
-                goGame()
-            } else if gameInfo.nextScene == 1 {
-                goInit()
-            } else if gameInfo.nextScene == 5 {
-                goSelect2()
-            } else if gameInfo.nextScene == 7 {
-                goProfile()
-            }*/
         } else if scene.isKindOfClass(InitScene){
             self.gameInfo = initScene.getGameInfo()
             goSelect()
-        } else if scene.isKindOfClass(SelectScene2){
-            self.gameInfo = selectScene2.getGameInfo()
-            if gameInfo.nextScene == 2 {
-                goSelect()
-            } else if gameInfo.nextScene == 6 {
-                goSelect3()
-            }
-        } else if scene.isKindOfClass(SelectScene3){
-            self.gameInfo = selectScene3.getGameInfo()
-            if gameInfo.nextScene == 5 {
-                goSelect2()
-            }
         }
     }
     

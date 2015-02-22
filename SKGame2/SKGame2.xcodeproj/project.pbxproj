@@ -19,6 +19,7 @@
 		6A0041731A9A2A70009DD922 /* kono_pr.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A00416B1A9A2A70009DD922 /* kono_pr.png */; };
 		6A0041741A9A2A70009DD922 /* tamaki_pr.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A00416C1A9A2A70009DD922 /* tamaki_pr.png */; };
 		6A0041751A9A2A70009DD922 /* wada_pr.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A00416D1A9A2A70009DD922 /* wada_pr.png */; };
+		6A0041771A9A2F55009DD922 /* welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A0041761A9A2F55009DD922 /* welcome.png */; };
 		6A0810401A77527200F320CF /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A08103F1A77527200F320CF /* CoreMotion.framework */; };
 		6A0810421A77559000F320CF /* ロゴ.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6A0810411A77559000F320CF /* ロゴ.jpeg */; };
 		6FF6F9AC1A9A182200C1A90D /* yamada.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FF6F9AB1A9A182200C1A90D /* yamada.png */; };
@@ -44,7 +45,6 @@
 		CE92CC0C1A3162AE003A6732 /* InitScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE92CC0B1A3162AE003A6732 /* InitScene.swift */; };
 		CED687E51A37FD57001F6AAB /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED687E41A37FD57001F6AAB /* GameData.swift */; };
 		CED687E71A38042B001F6AAB /* ein.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CED687E61A38042B001F6AAB /* ein.jpg */; };
-		CED687E91A386C32001F6AAB /* ProfileScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED687E81A386C32001F6AAB /* ProfileScene.swift */; };
 		CED687EB1A386D33001F6AAB /* movie1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CED687EA1A386D33001F6AAB /* movie1.mp4 */; };
 		CED687EF1A389611001F6AAB /* sound1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CED687EC1A389611001F6AAB /* sound1.mp3 */; };
 		CED687F01A389611001F6AAB /* sound2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CED687ED1A389611001F6AAB /* sound2.mp3 */; };
@@ -52,8 +52,6 @@
 		CED687F31A389A0A001F6AAB /* fault.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CED687F21A389A0A001F6AAB /* fault.mp3 */; };
 		CED687F51A389A20001F6AAB /* success.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CED687F41A389A20001F6AAB /* success.mp3 */; };
 		CEE83CE81A375EC30075EC8B /* img9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEE83CE71A375EC30075EC8B /* img9.jpg */; };
-		CEE83CEA1A3767240075EC8B /* SelectScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE83CE91A3767240075EC8B /* SelectScene2.swift */; };
-		CEE83CEC1A37673C0075EC8B /* SelectScene3.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE83CEB1A37673C0075EC8B /* SelectScene3.swift */; };
 		CEEA46BF1A2E500000DD2039 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA46BE1A2E500000DD2039 /* AppDelegate.swift */; };
 		CEEA46C11A2E500000DD2039 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CEEA46C01A2E500000DD2039 /* GameScene.sks */; };
 		CEEA46C31A2E500000DD2039 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA46C21A2E500000DD2039 /* GameScene.swift */; };
@@ -89,6 +87,7 @@
 		6A00416B1A9A2A70009DD922 /* kono_pr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kono_pr.png; sourceTree = "<group>"; };
 		6A00416C1A9A2A70009DD922 /* tamaki_pr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tamaki_pr.png; sourceTree = "<group>"; };
 		6A00416D1A9A2A70009DD922 /* wada_pr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wada_pr.png; sourceTree = "<group>"; };
+		6A0041761A9A2F55009DD922 /* welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome.png; sourceTree = "<group>"; };
 		6A08103F1A77527200F320CF /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		6A0810411A77559000F320CF /* ロゴ.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ロゴ.jpeg"; sourceTree = "<group>"; };
 		6FF6F9AB1A9A182200C1A90D /* yamada.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yamada.png; sourceTree = "<group>"; };
@@ -116,7 +115,6 @@
 		CE92CC0B1A3162AE003A6732 /* InitScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitScene.swift; sourceTree = "<group>"; };
 		CED687E41A37FD57001F6AAB /* GameData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 		CED687E61A38042B001F6AAB /* ein.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ein.jpg; sourceTree = "<group>"; };
-		CED687E81A386C32001F6AAB /* ProfileScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScene.swift; sourceTree = "<group>"; };
 		CED687EA1A386D33001F6AAB /* movie1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = movie1.mp4; sourceTree = "<group>"; };
 		CED687EC1A389611001F6AAB /* sound1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound1.mp3; sourceTree = "<group>"; };
 		CED687ED1A389611001F6AAB /* sound2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound2.mp3; sourceTree = "<group>"; };
@@ -124,8 +122,6 @@
 		CED687F21A389A0A001F6AAB /* fault.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fault.mp3; sourceTree = "<group>"; };
 		CED687F41A389A20001F6AAB /* success.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = success.mp3; sourceTree = "<group>"; };
 		CEE83CE71A375EC30075EC8B /* img9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img9.jpg; sourceTree = "<group>"; };
-		CEE83CE91A3767240075EC8B /* SelectScene2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectScene2.swift; sourceTree = "<group>"; };
-		CEE83CEB1A37673C0075EC8B /* SelectScene3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectScene3.swift; sourceTree = "<group>"; };
 		CEEA46B91A2E500000DD2039 /* 先生ウォッチ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "先生ウォッチ.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEA46BD1A2E500000DD2039 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEEA46BE1A2E500000DD2039 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -209,15 +205,12 @@
 				CEEA46C21A2E500000DD2039 /* GameScene.swift */,
 				CEEA46C41A2E500000DD2039 /* GameViewController.swift */,
 				CE92CC0B1A3162AE003A6732 /* InitScene.swift */,
-				CED687E81A386C32001F6AAB /* ProfileScene.swift */,
 				CE3212741A2FF71E00B8D0A4 /* GameInfo.swift */,
 				CED687E41A37FD57001F6AAB /* GameData.swift */,
 				CE3212721A2F643900B8D0A4 /* SelectScene.swift */,
 				6A00414A1A96D3F4009DD922 /* CustomDialog.swift */,
 				6A0041501A981B5B009DD922 /* CustomDialog2.swift */,
 				CE3212701A2F62E900B8D0A4 /* SecondScene.swift */,
-				CEE83CE91A3767240075EC8B /* SelectScene2.swift */,
-				CEE83CEB1A37673C0075EC8B /* SelectScene3.swift */,
 				CE32126E1A2F61A100B8D0A4 /* SceneEscapeProtocol.swift */,
 				CEEA46C61A2E500000DD2039 /* Main.storyboard */,
 				CEEA46C91A2E500000DD2039 /* Images.xcassets */,
@@ -234,6 +227,7 @@
 				6FF6F9C71A9A1C4D00C1A90D /* kono-to.png */,
 				6FF6F9C51A9A1B4400C1A90D /* yamada-to.png */,
 				6FF6F9C31A9A1B3E00C1A90D /* wada-to.png */,
+				6A0041761A9A2F55009DD922 /* welcome.png */,
 				6FF6F9C11A9A1B3700C1A90D /* tamaki-to.png */,
 				6FF6F9AB1A9A182200C1A90D /* yamada.png */,
 				6A0810411A77559000F320CF /* ロゴ.jpeg */,
@@ -405,6 +399,7 @@
 				CE2414B01A3154AB003B05E8 /* img7.jpg in Resources */,
 				CEEA46C81A2E500000DD2039 /* Main.storyboard in Resources */,
 				CEEA46E81A2E50F200DD2039 /* item3.jpg in Resources */,
+				6A0041771A9A2F55009DD922 /* welcome.png in Resources */,
 				CED687F11A389611001F6AAB /* sound3.mp3 in Resources */,
 				CE2414AB1A31549D003B05E8 /* img2.jpg in Resources */,
 				CEEA46E71A2E50F200DD2039 /* item2.jpg in Resources */,
@@ -430,13 +425,10 @@
 				CE92CC0C1A3162AE003A6732 /* InitScene.swift in Sources */,
 				CED687E51A37FD57001F6AAB /* GameData.swift in Sources */,
 				6A00414B1A96D3F5009DD922 /* CustomDialog.swift in Sources */,
-				CEE83CEA1A3767240075EC8B /* SelectScene2.swift in Sources */,
 				CE3212751A2FF71E00B8D0A4 /* GameInfo.swift in Sources */,
 				CEEA46C31A2E500000DD2039 /* GameScene.swift in Sources */,
 				CE3212711A2F62E900B8D0A4 /* SecondScene.swift in Sources */,
 				CE32126F1A2F61A100B8D0A4 /* SceneEscapeProtocol.swift in Sources */,
-				CED687E91A386C32001F6AAB /* ProfileScene.swift in Sources */,
-				CEE83CEC1A37673C0075EC8B /* SelectScene3.swift in Sources */,
 				CEEA46C51A2E500000DD2039 /* GameViewController.swift in Sources */,
 				CE3212731A2F643900B8D0A4 /* SelectScene.swift in Sources */,
 				CEEA46BF1A2E500000DD2039 /* AppDelegate.swift in Sources */,
