@@ -55,18 +55,18 @@ class SecondScene: SKScene {
             var m = gameInfo?.getMoney(1)
             moneyLabel.text =  String(m!)
             runAction(success)
-            statusLabel.text = "勝ち"
+            statusLabel.text = "単位取得！"
         }else {
             var m = gameInfo?.getMoney(0)
             moneyLabel.text = String(m!)
             runAction(fault)
-            statusLabel.text = "負け"
+            statusLabel.text = "留年"
         }
         statusLabel.fontSize = 40
         statusLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame) - 150);
         self.addChild(statusLabel)
       
-        backLabel.text = "戻る"
+        backLabel.text = "メニューに戻る"
         backLabel.fontSize = 40
         backLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame) - 270);
         self.addChild(backLabel)

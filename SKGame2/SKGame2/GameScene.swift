@@ -46,6 +46,8 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     var sound2 : SKAction = SKAction.playSoundFileNamed("sound2.mp3", waitForCompletion: false)
     var sound3 : SKAction = SKAction.playSoundFileNamed("sound3.mp3", waitForCompletion: false)
     
+    var myMotionManager: CMMotionManager!//加速度センサ
+    
     override func didMoveToView(view: SKView) {
         self.physicsWorld.contactDelegate = self
         self.physicsWorld.gravity = CGVectorMake(0, -1.0)
@@ -71,11 +73,31 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         
         pointLabel.position = CGPoint(x:650,y:700)
         self.addChild(pointLabel)
+        print("print:")
         println(self.difficulty)
         
         
         startTimer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: "startTime", userInfo: nil, repeats: false)
         countDown = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "countdown", userInfo: nil, repeats: true)
+        
+            //加速度センサ
+            // MotionManagerを生成.
+            myMotionManager = CMMotionManager()
+            
+            // 更新周期を設定.
+            myMotionManager.accelerometerUpdateInterval = 0.05
+            
+            // 加速度の取得を開始.
+            myMotionManager.startAccelerometerUpdatesToQueue(NSOperationQueue.mainQueue(), withHandler: {(accelerometerData:CMAccelerometerData!, error:NSError!) -> Void in
+                    self.teacher.position.x += CGFloat(accelerometerData.acceleration.x * 100.0)
+
+                    if (self.teacher.position.x < 330){
+                        self.teacher.position.x = 330
+                    } else if(self.teacher.position.x > 700) {
+                        self.teacher.position.x = 700
+                    }
+
+            })
         
     }
     
@@ -132,6 +154,13 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             self.addChild(finishLabel)
             
             var finishScene = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: "finishScene", userInfo: nil, repeats: false)
+            
+            
+            //停止
+            if (myMotionManager.accelerometerActive) {
+                myMotionManager.stopAccelerometerUpdates()
+            }
+            
         }
         self.myLabel.text = String(self.time)
     }

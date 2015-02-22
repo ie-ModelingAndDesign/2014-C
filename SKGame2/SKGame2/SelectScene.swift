@@ -13,14 +13,10 @@ class SelectScene: SKScene {
     
     var delegate_escape: SceneEscapeProtocol?
         
-    var menu1 : SKSpriteNode = SKSpriteNode(imageNamed: "item1.jpeg")
+    var menu1 : SKSpriteNode = SKSpriteNode(imageNamed: "item1.jpeg")//あとでボタン画像に差し替え
     var menu2 : SKSpriteNode = SKSpriteNode(imageNamed: "item2.jpg")
     var menu3 : SKSpriteNode = SKSpriteNode(imageNamed: "item3.jpg")
     
-    var menu4 : SKSpriteNode = SKSpriteNode(imageNamed: "item1.jpeg")
-    
-    var up : SKSpriteNode = SKSpriteNode(imageNamed: "item1.jpeg")
-    var down : SKSpriteNode = SKSpriteNode(imageNamed: "item2.jpg")
     var level : SKLabelNode = SKLabelNode()
     var money : SKLabelNode = SKLabelNode()
     
@@ -30,9 +26,11 @@ class SelectScene: SKScene {
     
     var difficulty : Int = 1
     
+    var dialog : CustomDialog!
+    
     override func didMoveToView(view: SKView) {
         
-        var l : SKLabelNode = SKLabelNode(text: "level::")
+        var l : SKLabelNode = SKLabelNode(text: "学年::")
         l.position = CGPoint(x: 350, y: 700)
         self.addChild(l)
         
@@ -50,10 +48,6 @@ class SelectScene: SKScene {
         menu1.yScale = 0.5
         menu1.position = CGPoint(x:500,y:600)
         self.addChild(menu1)
-        menu4.xScale = 0.3
-        menu4.yScale = 0.3
-        menu4.position = CGPoint(x:650,y:600)
-        self.addChild(menu4)
         
         menu2.xScale = 1.2
         menu2.yScale = 0.5
@@ -64,17 +58,7 @@ class SelectScene: SKScene {
         menu3.yScale = 0.5
         menu3.position = CGPoint(x:500,y:200)
         self.addChild(menu3)
-        
-        up.xScale = 0.3
-        up.yScale = 0.3
-        up.position = CGPoint(x:700,y:700)
-        self.addChild(up)
-        
-        down.xScale = 0.3
-        down.yScale = 0.3
-        down.position = CGPoint(x:700,y:150)
-        self.addChild(down)
-            }
+    }
 
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         for touch: AnyObject in touches {
@@ -83,43 +67,34 @@ class SelectScene: SKScene {
             
             println(location)
             
-            if menu1.containsPoint(location) {
-                if(gameInfo?.money >= 100){
-                    gameInfo?.money -= 100
-                    gameInfo?.difficulty = 1
-                    gameInfo?.nextScene = 3
-                    self.gameID = 0
-                    delegate_escape!.sceneEscape(self)
-                }
+            if menu1.containsPoint(location) {//1番目の先生
+                // カスタムダイアログを生成.
+                gameInfo?.difficulty = 1
+                gameInfo?.nextScene = 3
+                self.gameID = 0//ここで先生を指定
+                dialog = CustomDialog(id:self.gameID , scene: self, frame:CGRectMake(0, 0, self.view!.bounds.maxX - 50, 300), seaneESCP: delegate_escape!)
+                self.view!.addSubview(dialog)
+                
             } else if menu2.containsPoint(location) {
-                if(gameInfo?.money >= 300){
-                    gameInfo?.money -= 300
-                gameInfo?.difficulty = 2
+                gameInfo?.difficulty = 1
                 gameInfo?.nextScene = 3
-                self.gameID = 1
-                delegate_escape!.sceneEscape(self)
-                }
+                self.gameID = 1//ここで先生を指定
+                dialog = CustomDialog(id:self.gameID , scene: self, frame:CGRectMake(0, 0, self.view!.bounds.maxX - 50, 300), seaneESCP: delegate_escape!)
+                self.view!.addSubview(dialog)
             } else if menu3.containsPoint(location) {
-                if(gameInfo?.money >= 500){
-                    gameInfo?.money -= 500
-                gameInfo?.difficulty = 3
+                gameInfo?.difficulty = 1
                 gameInfo?.nextScene = 3
-                self.gameID = 2
-                delegate_escape!.sceneEscape(self)
-                }
-            } else if down.containsPoint(location) {
-                gameInfo?.nextScene = 5
-                delegate_escape!.sceneEscape(self)
-            } else if menu4.containsPoint(location) {
-                gameInfo?.gameID = 0
-                gameInfo?.nextScene = 7
-                delegate_escape!.sceneEscape(self)
+                self.gameID = 2//ここで先生を指定
+                dialog = CustomDialog(id:self.gameID , scene: self, frame:CGRectMake(0, 0, self.view!.bounds.maxX - 50, 300), seaneESCP: delegate_escape!)
+                self.view!.addSubview(dialog)
             }
         }
     }
     
     
     func getDifficulty() -> Int{
+        println("selectScene's difficulty")
+        println(self.difficulty)
         return self.difficulty
     }
     
@@ -136,5 +111,6 @@ class SelectScene: SKScene {
         level.text = String(gameInfo.playerLevel)
         money.text = String(gameInfo.money)
     }
+    
     
 }

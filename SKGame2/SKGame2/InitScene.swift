@@ -17,13 +17,13 @@ class InitScene : SKScene  {
     var gameInfo : GameInfo?
     
     let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-    let sLabel = SKLabelNode(text:"続きでウォッチ")
+    let sLabel = SKLabelNode(text:"続きからウォッチ")
     let rLabel = SKLabelNode(fontNamed:"Chalkduster")
 
     
     override func didMoveToView(view: SKView) {
         
-        myLabel.text = "溶解ウォッチ";
+        myLabel.text = "先生ウォッチ";
         myLabel.fontSize = 40;
         myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame)+150);
         self.addChild(myLabel)
@@ -48,7 +48,7 @@ class InitScene : SKScene  {
             let location = touch.locationInNode(self)
         
             if sLabel.containsPoint(location) {
-                if(sLabel.text == "続きでウォッチ") {
+                if(sLabel.text == "続きからウォッチ") {
                     gameInfo?.nextScene = 2
                     delegate_escape!.sceneEscape(self)
                 }
@@ -67,7 +67,7 @@ class InitScene : SKScene  {
     }
     
     func setText(){
-        sLabel.text = "ようこそ！溶解の正解へ"
+        sLabel.text = "ようこそ！情報工学科へ"
     }
 
 }

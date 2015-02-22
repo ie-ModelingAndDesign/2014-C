@@ -19,7 +19,7 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
     var selectScene : SelectScene = SelectScene()
     var selectScene2 : SelectScene2 = SelectScene2()
     var selectScene3 : SelectScene3 = SelectScene3()
-    var gameScene : GameScene = GameScene()
+    var gameScene : GameScene? = GameScene()
     var secondScene :SecondScene = SecondScene()
     var initScene : InitScene = InitScene()
     var profileScene : ProfileScene = ProfileScene()
@@ -86,18 +86,18 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
     
     func goGame() {
         gameScene = GameScene(size: CGSizeMake(1024, 768))
-        gameScene.setGameInfo(self.gameInfo)
-        gameScene.setDifficulty(selectScene.getDifficulty())
-        gameScene.setGameID(selectScene.getGameId())
-        gameScene.delegate_escape = self
-        gameScene.scaleMode = SKSceneScaleMode.AspectFill
+        gameScene!.setGameInfo(self.gameInfo)
+        gameScene!.setDifficulty(selectScene.getDifficulty())
+        gameScene!.setGameID(selectScene.getGameId())
+        gameScene!.delegate_escape = self
+        gameScene!.scaleMode = SKSceneScaleMode.AspectFill
         self.skView!.presentScene(gameScene)
     }
     
     func goSecond() {
         secondScene = SecondScene(size: CGSizeMake(1024, 768))
         secondScene.setGameInfo(self.gameInfo)
-        secondScene.getPoint(gameScene.returnPoint())
+        secondScene.getPoint(gameScene!.returnPoint())
         saveData()
         secondScene.delegate_escape = self
         secondScene.scaleMode = SKSceneScaleMode.AspectFill
@@ -140,11 +140,11 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
         defaults.setObject(datas, forKey:"data")
         defaults.synchronize()
     }
-    
-    func sceneEscape(scene: SKScene) {
         
+    func sceneEscape(scene: SKScene) {
+                
         if scene.isKindOfClass(GameScene) {
-            self.gameInfo = gameScene.getGameInfo()
+            self.gameInfo = gameScene!.getGameInfo()
             if gameInfo.nextScene == 4{
                 goSecond()
             }
@@ -156,8 +156,10 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
                 goGame()
             }
         } else if scene.isKindOfClass(SelectScene){
+            println("in sceneEscape");
             self.gameInfo = selectScene.getGameInfo()
-            if gameInfo.nextScene == 3 {
+            goGame()
+            /*if gameInfo.nextScene == 3 {
                 goGame()
             } else if gameInfo.nextScene == 1 {
                 goInit()
@@ -165,7 +167,7 @@ class GameViewController: UIViewController, SceneEscapeProtocol {
                 goSelect2()
             } else if gameInfo.nextScene == 7 {
                 goProfile()
-            }
+            }*/
         } else if scene.isKindOfClass(InitScene){
             self.gameInfo = initScene.getGameInfo()
             goSelect()

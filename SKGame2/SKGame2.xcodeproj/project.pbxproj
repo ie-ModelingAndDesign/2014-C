@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A0041491A96C227009DD922 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEEA46C91A2E500000DD2039 /* Images.xcassets */; };
+		6A00414B1A96D3F5009DD922 /* CustomDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A00414A1A96D3F4009DD922 /* CustomDialog.swift */; };
+		6A00414F1A981AE6009DD922 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6A00414E1A981AE6009DD922 /* background.jpg */; };
+		6A0041511A981B5B009DD922 /* CustomDialog2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0041501A981B5B009DD922 /* CustomDialog2.swift */; };
+		6A0810401A77527200F320CF /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A08103F1A77527200F320CF /* CoreMotion.framework */; };
+		6A0810421A77559000F320CF /* ロゴ.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6A0810411A77559000F320CF /* ロゴ.jpeg */; };
 		CE05ADC11A39F366005E6ECD /* UIColor+Shorthands.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05ADC01A39F366005E6ECD /* UIColor+Shorthands.swift */; };
 		CE2414A91A31549D003B05E8 /* img4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE2414A61A31549C003B05E8 /* img4.jpg */; };
 		CE2414AA1A31549D003B05E8 /* img3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE2414A71A31549D003B05E8 /* img3.jpg */; };
@@ -20,8 +26,6 @@
 		CE3212711A2F62E900B8D0A4 /* SecondScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3212701A2F62E900B8D0A4 /* SecondScene.swift */; };
 		CE3212731A2F643900B8D0A4 /* SelectScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3212721A2F643900B8D0A4 /* SelectScene.swift */; };
 		CE3212751A2FF71E00B8D0A4 /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3212741A2FF71E00B8D0A4 /* GameInfo.swift */; };
-		CE45FBFF1A5DB052008931D9 /* Udyr.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE45FBFE1A5DB052008931D9 /* Udyr.jpg */; };
-		CE45FC011A5DB129008931D9 /* udyr200.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE45FC001A5DB129008931D9 /* udyr200.jpg */; };
 		CE45FC031A5E096C008931D9 /* data1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE45FC021A5E096C008931D9 /* data1.jpg */; };
 		CE92CC0C1A3162AE003A6732 /* InitScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE92CC0B1A3162AE003A6732 /* InitScene.swift */; };
 		CED687E51A37FD57001F6AAB /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED687E41A37FD57001F6AAB /* GameData.swift */; };
@@ -41,7 +45,6 @@
 		CEEA46C31A2E500000DD2039 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA46C21A2E500000DD2039 /* GameScene.swift */; };
 		CEEA46C51A2E500000DD2039 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA46C41A2E500000DD2039 /* GameViewController.swift */; };
 		CEEA46C81A2E500000DD2039 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEA46C61A2E500000DD2039 /* Main.storyboard */; };
-		CEEA46CA1A2E500000DD2039 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEEA46C91A2E500000DD2039 /* Images.xcassets */; };
 		CEEA46CD1A2E500000DD2039 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEEA46CB1A2E500000DD2039 /* LaunchScreen.xib */; };
 		CEEA46D91A2E500000DD2039 /* SKGame2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA46D81A2E500000DD2039 /* SKGame2Tests.swift */; };
 		CEEA46E61A2E50F200DD2039 /* item1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CEEA46E21A2E50F200DD2039 /* item1.jpeg */; };
@@ -61,6 +64,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6A00414A1A96D3F4009DD922 /* CustomDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDialog.swift; sourceTree = "<group>"; };
+		6A00414E1A981AE6009DD922 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		6A0041501A981B5B009DD922 /* CustomDialog2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDialog2.swift; sourceTree = "<group>"; };
+		6A08103F1A77527200F320CF /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		6A0810411A77559000F320CF /* ロゴ.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ロゴ.jpeg"; sourceTree = "<group>"; };
 		CE05ADC01A39F366005E6ECD /* UIColor+Shorthands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Shorthands.swift"; sourceTree = "<group>"; };
 		CE2414A61A31549C003B05E8 /* img4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img4.jpg; sourceTree = "<group>"; };
 		CE2414A71A31549D003B05E8 /* img3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img3.jpg; sourceTree = "<group>"; };
@@ -74,8 +82,6 @@
 		CE3212701A2F62E900B8D0A4 /* SecondScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondScene.swift; sourceTree = "<group>"; };
 		CE3212721A2F643900B8D0A4 /* SelectScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectScene.swift; sourceTree = "<group>"; };
 		CE3212741A2FF71E00B8D0A4 /* GameInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
-		CE45FBFE1A5DB052008931D9 /* Udyr.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Udyr.jpg; sourceTree = "<group>"; };
-		CE45FC001A5DB129008931D9 /* udyr200.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = udyr200.jpg; sourceTree = "<group>"; };
 		CE45FC021A5E096C008931D9 /* data1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = data1.jpg; sourceTree = "<group>"; };
 		CE6092861A5623AE00966923 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE6092871A5623AE00966923 /* SKGame2_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKGame2_Tests.swift; sourceTree = "<group>"; };
@@ -115,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A0810401A77527200F320CF /* CoreMotion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +155,7 @@
 		CEEA46B01A2E500000DD2039 = {
 			isa = PBXGroup;
 			children = (
+				6A08103F1A77527200F320CF /* CoreMotion.framework */,
 				CEEA46BB1A2E500000DD2039 /* SKGame2 */,
 				CEEA46D51A2E500000DD2039 /* SKGame2Tests */,
 				CE6092841A5623AE00966923 /* SKGame2 Tests */,
@@ -177,6 +185,8 @@
 				CE3212741A2FF71E00B8D0A4 /* GameInfo.swift */,
 				CED687E41A37FD57001F6AAB /* GameData.swift */,
 				CE3212721A2F643900B8D0A4 /* SelectScene.swift */,
+				6A00414A1A96D3F4009DD922 /* CustomDialog.swift */,
+				6A0041501A981B5B009DD922 /* CustomDialog2.swift */,
 				CEE83CE91A3767240075EC8B /* SelectScene2.swift */,
 				CEE83CEB1A37673C0075EC8B /* SelectScene3.swift */,
 				CE3212701A2F62E900B8D0A4 /* SecondScene.swift */,
@@ -192,6 +202,8 @@
 		CEEA46BC1A2E500000DD2039 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6A0810411A77559000F320CF /* ロゴ.jpeg */,
+				6A00414E1A981AE6009DD922 /* background.jpg */,
 				CED687F41A389A20001F6AAB /* success.mp3 */,
 				CED687F21A389A0A001F6AAB /* fault.mp3 */,
 				CED687EC1A389611001F6AAB /* sound1.mp3 */,
@@ -199,10 +211,8 @@
 				CED687EE1A389611001F6AAB /* sound3.mp3 */,
 				CED687EA1A386D33001F6AAB /* movie1.mp4 */,
 				CE45FC021A5E096C008931D9 /* data1.jpg */,
-				CE45FBFE1A5DB052008931D9 /* Udyr.jpg */,
 				CED687E61A38042B001F6AAB /* ein.jpg */,
 				CEE83CE71A375EC30075EC8B /* img9.jpg */,
-				CE45FC001A5DB129008931D9 /* udyr200.jpg */,
 				CEEA46E21A2E50F200DD2039 /* item1.jpeg */,
 				CE2414AC1A3154AB003B05E8 /* img7.jpg */,
 				CE2414AD1A3154AB003B05E8 /* img6.jpg */,
@@ -317,6 +327,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A00414F1A981AE6009DD922 /* background.jpg in Resources */,
 				CEEA46CD1A2E500000DD2039 /* LaunchScreen.xib in Resources */,
 				CE2414B31A3154AB003B05E8 /* img5.jpg in Resources */,
 				CE2414AA1A31549D003B05E8 /* img3.jpg in Resources */,
@@ -324,16 +335,15 @@
 				CEE83CE81A375EC30075EC8B /* img9.jpg in Resources */,
 				CE2414B21A3154AB003B05E8 /* img8.jpg in Resources */,
 				CE2414B11A3154AB003B05E8 /* img6.jpg in Resources */,
-				CE45FBFF1A5DB052008931D9 /* Udyr.jpg in Resources */,
-				CE45FC011A5DB129008931D9 /* udyr200.jpg in Resources */,
+				6A0041491A96C227009DD922 /* Images.xcassets in Resources */,
 				CED687F31A389A0A001F6AAB /* fault.mp3 in Resources */,
 				CED687EB1A386D33001F6AAB /* movie1.mp4 in Resources */,
 				CE2414B51A3154B7003B05E8 /* img1.jpg in Resources */,
-				CEEA46CA1A2E500000DD2039 /* Images.xcassets in Resources */,
 				CEEA46E91A2E50F200DD2039 /* kono3.jpg in Resources */,
 				CED687EF1A389611001F6AAB /* sound1.mp3 in Resources */,
 				CEEA46E61A2E50F200DD2039 /* item1.jpeg in Resources */,
 				CE45FC031A5E096C008931D9 /* data1.jpg in Resources */,
+				6A0810421A77559000F320CF /* ロゴ.jpeg in Resources */,
 				CE2414A91A31549D003B05E8 /* img4.jpg in Resources */,
 				CEEA46C11A2E500000DD2039 /* GameScene.sks in Resources */,
 				CED687E71A38042B001F6AAB /* ein.jpg in Resources */,
@@ -363,6 +373,7 @@
 			files = (
 				CE92CC0C1A3162AE003A6732 /* InitScene.swift in Sources */,
 				CED687E51A37FD57001F6AAB /* GameData.swift in Sources */,
+				6A00414B1A96D3F5009DD922 /* CustomDialog.swift in Sources */,
 				CEE83CEA1A3767240075EC8B /* SelectScene2.swift in Sources */,
 				CE3212751A2FF71E00B8D0A4 /* GameInfo.swift in Sources */,
 				CEEA46C31A2E500000DD2039 /* GameScene.swift in Sources */,
@@ -374,6 +385,7 @@
 				CE3212731A2F643900B8D0A4 /* SelectScene.swift in Sources */,
 				CEEA46BF1A2E500000DD2039 /* AppDelegate.swift in Sources */,
 				CE05ADC11A39F366005E6ECD /* UIColor+Shorthands.swift in Sources */,
+				6A0041511A981B5B009DD922 /* CustomDialog2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
