@@ -50,29 +50,29 @@ class SelectScene: SKScene {
         self.addChild(level)
         
         menu1.xScale = 1.2
-        menu1.yScale = 0.5
+        menu1.yScale = 1.0
         menu1.position = CGPoint(x:500,y:600)
         self.addChild(menu1)
         
         menu2.xScale = 1.2
-        menu2.yScale = 0.5
+        menu2.yScale = 1.0
         menu2.position = CGPoint(x:500,y:480)
         self.addChild(menu2)
         
         menu3.xScale = 1.2
-        menu3.yScale = 0.5
+        menu3.yScale = 1.0
         menu3.position = CGPoint(x:500,y:360)
         self.addChild(menu3)
         
         
         menu4.xScale = 1.2
-        menu4.yScale = 0.5
+        menu4.yScale = 1.0
         menu4.position = CGPoint(x:500,y:240)
         self.addChild(menu4)
         
         
         menu5.xScale = 1.2
-        menu5.yScale = 0.5
+        menu5.yScale = 1.0
         menu5.position = CGPoint(x:500,y:120)
         self.addChild(menu5)
         

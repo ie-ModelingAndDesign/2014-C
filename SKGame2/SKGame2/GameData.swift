@@ -20,7 +20,7 @@ class GameData {
     
     let itemPoint : [[Int]] = [[100, 0, 0], [100, 300, 0], [100, 300, -500], [100, 5000, -1000]]
     
-    let border : [Int] = [700, 2000, 4000, 10000]
+    let border : [Int] = [700, 2000, 7000, 10000]
     
     let name : [String] = ["和田知久", "玉城史郎", "河野真治"]
     let subject : [String] = ["情報倫理", "情報数学", "OS"]

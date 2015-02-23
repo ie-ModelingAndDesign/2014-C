@@ -26,8 +26,10 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     
     var teacher = SKSpriteNode()
     
+    var timeLabel : SKLabelNode = SKLabelNode(text: "Time : ")
     var myLabel : SKLabelNode = SKLabelNode(text: "30")
     var time :Int = 30
+    var pointLabel2 : SKLabelNode = SKLabelNode(text: "Point : ")
     var pointLabel : SKLabelNode = SKLabelNode(text: "0")
     var point : Int = 0
     
@@ -73,10 +75,14 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         
         gameInfo?.border = self.data.border
         
+        timeLabel.position = CGPoint(x:600,y:700)
+        self.addChild(timeLabel)
         myLabel.position = CGPoint(x:700,y:700)
         self.addChild(myLabel)
         
-        pointLabel.position = CGPoint(x:650,y:700)
+        pointLabel2.position = CGPoint(x:350,y:700)
+        self.addChild(pointLabel2)
+        pointLabel.position = CGPoint(x:450,y:700)
         self.addChild(pointLabel)
         print("print:")
         println(self.difficulty)

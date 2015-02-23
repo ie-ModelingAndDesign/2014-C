@@ -14,13 +14,13 @@
 		6A00416E1A9A2A70009DD922 /* background_bad.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A0041661A9A2A6F009DD922 /* background_bad.png */; };
 		6A00416F1A9A2A70009DD922 /* background_game.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A0041671A9A2A70009DD922 /* background_game.png */; };
 		6A0041701A9A2A70009DD922 /* background_good.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A0041681A9A2A70009DD922 /* background_good.png */; };
-		6A0041711A9A2A70009DD922 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6A0041691A9A2A70009DD922 /* background.jpg */; };
-		6A0041721A9A2A70009DD922 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A00416A1A9A2A70009DD922 /* background.png */; };
 		6A0041731A9A2A70009DD922 /* kono_pr.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A00416B1A9A2A70009DD922 /* kono_pr.png */; };
 		6A0041741A9A2A70009DD922 /* tamaki_pr.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A00416C1A9A2A70009DD922 /* tamaki_pr.png */; };
 		6A0041751A9A2A70009DD922 /* wada_pr.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A00416D1A9A2A70009DD922 /* wada_pr.png */; };
-		6A0041771A9A2F55009DD922 /* welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A0041761A9A2F55009DD922 /* welcome.png */; };
 		6A0041791A9A39F7009DD922 /* kono_pr.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6A0041781A9A39F7009DD922 /* kono_pr.jpeg */; };
+		6A00417D1A9AA46E009DD922 /* welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A00417C1A9AA46E009DD922 /* welcome.png */; };
+		6A0041811A9AA650009DD922 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A0041801A9AA650009DD922 /* background.png */; };
+		6A0041831A9AA6BE009DD922 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6A0041821A9AA6BE009DD922 /* background.jpg */; };
 		6A0810401A77527200F320CF /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A08103F1A77527200F320CF /* CoreMotion.framework */; };
 		6A0810421A77559000F320CF /* ロゴ.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6A0810411A77559000F320CF /* ロゴ.jpeg */; };
 		6F201D311A9A3225008C7EDA /* wada.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F201D301A9A3225008C7EDA /* wada.png */; };
@@ -92,13 +92,13 @@
 		6A0041661A9A2A6F009DD922 /* background_bad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_bad.png; sourceTree = "<group>"; };
 		6A0041671A9A2A70009DD922 /* background_game.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_game.png; sourceTree = "<group>"; };
 		6A0041681A9A2A70009DD922 /* background_good.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_good.png; sourceTree = "<group>"; };
-		6A0041691A9A2A70009DD922 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
-		6A00416A1A9A2A70009DD922 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		6A00416B1A9A2A70009DD922 /* kono_pr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kono_pr.png; sourceTree = "<group>"; };
 		6A00416C1A9A2A70009DD922 /* tamaki_pr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tamaki_pr.png; sourceTree = "<group>"; };
 		6A00416D1A9A2A70009DD922 /* wada_pr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wada_pr.png; sourceTree = "<group>"; };
-		6A0041761A9A2F55009DD922 /* welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome.png; sourceTree = "<group>"; };
 		6A0041781A9A39F7009DD922 /* kono_pr.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kono_pr.jpeg; sourceTree = "<group>"; };
+		6A00417C1A9AA46E009DD922 /* welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome.png; sourceTree = "<group>"; };
+		6A0041801A9AA650009DD922 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		6A0041821A9AA6BE009DD922 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		6A08103F1A77527200F320CF /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		6A0810411A77559000F320CF /* ロゴ.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ロゴ.jpeg"; sourceTree = "<group>"; };
 		6F201D301A9A3225008C7EDA /* wada.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wada.png; sourceTree = "<group>"; };
@@ -256,7 +256,8 @@
 				6FF6F9C71A9A1C4D00C1A90D /* kono-to.png */,
 				6FF6F9C51A9A1B4400C1A90D /* yamada-to.png */,
 				6FF6F9C31A9A1B3E00C1A90D /* wada-to.png */,
-				6A0041761A9A2F55009DD922 /* welcome.png */,
+				6A00417C1A9AA46E009DD922 /* welcome.png */,
+				6A0041821A9AA6BE009DD922 /* background.jpg */,
 				6FF6F9C11A9A1B3700C1A90D /* tamaki-to.png */,
 				6FF6F9AB1A9A182200C1A90D /* yamada.png */,
 				6A0810411A77559000F320CF /* ロゴ.jpeg */,
@@ -269,12 +270,11 @@
 				CED687EA1A386D33001F6AAB /* movie1.mp4 */,
 				CE45FC021A5E096C008931D9 /* data1.jpg */,
 				CED687E61A38042B001F6AAB /* ein.jpg */,
+				6A0041801A9AA650009DD922 /* background.png */,
 				6A0041661A9A2A6F009DD922 /* background_bad.png */,
 				6A0041671A9A2A70009DD922 /* background_game.png */,
 				6A0041781A9A39F7009DD922 /* kono_pr.jpeg */,
 				6A0041681A9A2A70009DD922 /* background_good.png */,
-				6A0041691A9A2A70009DD922 /* background.jpg */,
-				6A00416A1A9A2A70009DD922 /* background.png */,
 				6A00416B1A9A2A70009DD922 /* kono_pr.png */,
 				6A00416C1A9A2A70009DD922 /* tamaki_pr.png */,
 				6A00416D1A9A2A70009DD922 /* wada_pr.png */,
@@ -397,10 +397,10 @@
 				6A0041741A9A2A70009DD922 /* tamaki_pr.png in Resources */,
 				6A00414F1A981AE6009DD922 /* background.jpg in Resources */,
 				6F201D3F1A9A3381008C7EDA /* curry.png in Resources */,
+				6A0041831A9AA6BE009DD922 /* background.jpg in Resources */,
 				CEEA46CD1A2E500000DD2039 /* LaunchScreen.xib in Resources */,
 				CE2414B31A3154AB003B05E8 /* img5.jpg in Resources */,
 				CE2414AA1A31549D003B05E8 /* img3.jpg in Resources */,
-				6A0041711A9A2A70009DD922 /* background.jpg in Resources */,
 				6F201D311A9A3225008C7EDA /* wada.png in Resources */,
 				CED687F51A389A20001F6AAB /* success.mp3 in Resources */,
 				6A0041751A9A2A70009DD922 /* wada_pr.png in Resources */,
@@ -411,9 +411,9 @@
 				CE2414B11A3154AB003B05E8 /* img6.jpg in Resources */,
 				6FF6F9CA1A9A1C5300C1A90D /* okazaki-to.png in Resources */,
 				6A0041731A9A2A70009DD922 /* kono_pr.png in Resources */,
-				6A0041721A9A2A70009DD922 /* background.png in Resources */,
 				6A0041491A96C227009DD922 /* Images.xcassets in Resources */,
 				CED687F31A389A0A001F6AAB /* fault.mp3 in Resources */,
+				6A0041811A9AA650009DD922 /* background.png in Resources */,
 				CED687EB1A386D33001F6AAB /* movie1.mp4 in Resources */,
 				6A00416E1A9A2A70009DD922 /* background_bad.png in Resources */,
 				6FF6F9C41A9A1B3E00C1A90D /* wada-to.png in Resources */,
@@ -428,6 +428,7 @@
 				6FF6F9AC1A9A182200C1A90D /* yamada.png in Resources */,
 				6A0041701A9A2A70009DD922 /* background_good.png in Resources */,
 				6F201D391A9A32C4008C7EDA /* yagi.png in Resources */,
+				6A00417D1A9AA46E009DD922 /* welcome.png in Resources */,
 				CE2414A91A31549D003B05E8 /* img4.jpg in Resources */,
 				6FF6F9C21A9A1B3700C1A90D /* tamaki-to.png in Resources */,
 				6FF6F9C61A9A1B4400C1A90D /* yamada-to.png in Resources */,
@@ -437,7 +438,6 @@
 				CE2414B01A3154AB003B05E8 /* img7.jpg in Resources */,
 				CEEA46C81A2E500000DD2039 /* Main.storyboard in Resources */,
 				CEEA46E81A2E50F200DD2039 /* item3.jpg in Resources */,
-				6A0041771A9A2F55009DD922 /* welcome.png in Resources */,
 				6F201D411A9A3388008C7EDA /* love.png in Resources */,
 				6F201D331A9A324A008C7EDA /* takaki.png in Resources */,
 				CED687F11A389611001F6AAB /* sound3.mp3 in Resources */,

@@ -23,22 +23,18 @@ class SecondScene: SKScene {
     var fault : SKAction = SKAction.playSoundFileNamed("fault.mp3", waitForCompletion: false)
     
     override func didMoveToView(view: SKView) {
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
+        let myLabel = SKLabelNode(fontNamed:"Hiragino Maru Gothic Pro")
         myLabel.text = "Point:";
-        myLabel.fontSize = 40;
-        myLabel.fontColor = SKColor.blueColor();
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame)-100, y:CGRectGetMidY(self.frame)+200);
-        self.addChild(myLabel)
+        myLabel.fontSize = 50;
+        myLabel.position = CGPoint(x:450, y:CGRectGetMidY(self.frame)+200);
         
-        let pointLabel = SKLabelNode(fontNamed: "Chalkduster")
+        let pointLabel = SKLabelNode(fontNamed: "Hiragino Maru Gothic Pro")
         var score = gameInfo?.point
         pointLabel.text = String(score!)
-        pointLabel.fontSize = 40;
-        pointLabel.fontColor = SKColor.blueColor();
-        pointLabel.position = CGPoint(x:CGRectGetMidX(self.frame)+30 , y:CGRectGetMidY(self.frame)+200);
-        self.addChild(pointLabel)
+        pointLabel.fontSize = 50;
+        pointLabel.position = CGPoint(x:600 , y:CGRectGetMidY(self.frame)+200);
         
-        let statusLabel = SKLabelNode(fontNamed: "Chalkduster")
+        var statusLabel = SKLabelNode(fontNamed: "Chalkduster")
         
         if gamePoint >= gameInfo?.border {
             //背景指定
@@ -46,7 +42,21 @@ class SecondScene: SKScene {
             sprBG.position = CGPointMake(self.frame.size.width*0.53, self.frame.size.height*0.5)
             self.addChild(sprBG)
             runAction(success)
+            
             statusLabel.text = "単位取得！"
+            statusLabel.fontName = "HiraKakuProN-W3"
+            statusLabel.fontColor = SKColor.blueColor();
+            
+            myLabel.fontColor = SKColor.blueColor();
+            self.addChild(myLabel)
+            
+            pointLabel.fontColor = SKColor.blueColor();
+            self.addChild(pointLabel)
+            
+            backLabel.fontColor = SKColor.blueColor();
+            retryLabel.fontColor = SKColor.blueColor();
+
+
         }else {
             //背景指定
             let sprBG : SKSpriteNode = SKSpriteNode(imageNamed:"background_bad.png")
@@ -54,22 +64,30 @@ class SecondScene: SKScene {
             self.addChild(sprBG)
             runAction(fault)
             statusLabel.text = "留年"
+            
+            statusLabel.fontColor = SKColor.yellowColor();
+            
+            myLabel.fontColor = SKColor.yellowColor();
+            self.addChild(myLabel)
+            
+            pointLabel.fontColor = SKColor.yellowColor();
+            self.addChild(pointLabel)
+            
+            backLabel.fontColor = SKColor.yellowColor();
+            retryLabel.fontColor = SKColor.yellowColor();
         }
-        statusLabel.fontSize = 40
-        statusLabel.fontColor = SKColor.blueColor();
-        statusLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame) - 150);
+        statusLabel.fontSize = 80
+        statusLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
         self.addChild(statusLabel)
       
         backLabel.text = "メニューに戻る"
         backLabel.fontSize = 40
-        backLabel.fontColor = SKColor.blueColor();
-        backLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame) - 270);
+        backLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame) - 220);
         self.addChild(backLabel)
         
         retryLabel.text = "もう一度"
         retryLabel.fontSize = 40
-        retryLabel.fontColor = SKColor.blueColor();
-        retryLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame) - 330);
+        retryLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame) - 300);
         self.addChild(retryLabel)
     }
     
